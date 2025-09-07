@@ -6,23 +6,27 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import sys
+import os
 project = 'PythonSI'
 copyright = '2025, PSI Contributors'
 author = 'PSI Contributors'
 release = 'First pre-release'
 
-import os
-import sys
 sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../psi'))
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage',
+              'sphinx.ext.napoleon', 'sphinx.ext.autosummary']
+
+autosummary_generate = True
+autosummary_imported_members = True
 
 templates_path = ['_templates']
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------

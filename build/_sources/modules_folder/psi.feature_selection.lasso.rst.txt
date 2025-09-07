@@ -1,0 +1,12 @@
+psi.feature\_selection.lasso
+============================
+
+.. automodule:: psi.feature_selection.lasso
+
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      LassoFeatureSelection
+   

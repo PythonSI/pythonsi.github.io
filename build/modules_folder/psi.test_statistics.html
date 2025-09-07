@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psi.test_statistics &mdash; PythonSI First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples gallery" href="../examples/index.html" />
+    <link rel="prev" title="psi.domain_adaptation" href="psi.domain_adaptation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PythonSI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API and modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="psi.feature_selection.html">psi.feature_selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psi.domain_adaptation.html">psi.domain_adaptation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">psi.test_statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#psi.test_statistics.FSTestStatistic"><code class="docutils literal notranslate"><span class="pre">FSTestStatistic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psi.test_statistics.SFS_DATestStatistic"><code class="docutils literal notranslate"><span class="pre">SFS_DATestStatistic</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PythonSI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API and modules</a></li>
+      <li class="breadcrumb-item active">psi.test_statistics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules_folder/psi.test_statistics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-psi.test_statistics">
+<span id="psi-test-statistics"></span><h1>psi.test_statistics<a class="headerlink" href="#module-psi.test_statistics" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="psi.test_statistics.FSTestStatistic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psi.test_statistics.</span></span><span class="sig-name descname"><span class="pre">FSTestStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psi.test_statistics.FSTestStatistic" title="Link to this definition"></a></dt>
+<dd><p>Compute test statistic and other utilities for feature selection inference.</p>
+<p>This class computes test statistics for testing individual features
+after feature selection, implementing the post-selection inference
+framework for validating selected features.</p>
+<p>The test statistic is designed for testing:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_j = 0 \quad \text{vs} \quad H_1: \beta_j \neq 0\]</div>
+<p>for a specific feature <span class="math notranslate nohighlight">\(j\)</span> in the active set, where <span class="math notranslate nohighlight">\(\beta_j\)</span>
+is the coefficient of feature <span class="math notranslate nohighlight">\(j\)</span> in the linear model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>p</em><em>)</em>) – Design matrix containing all features</p></li>
+<li><p><strong>y</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>1</em><em>)</em>) – Response vector</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.FSTestStatistic.x_node">
+<span class="sig-name descname"><span class="pre">x_node</span></span><a class="headerlink" href="#psi.test_statistics.FSTestStatistic.x_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the design matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.FSTestStatistic.y_node">
+<span class="sig-name descname"><span class="pre">y_node</span></span><a class="headerlink" href="#psi.test_statistics.FSTestStatistic.y_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the response vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psi.test_statistics.FSTestStatistic.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#psi.test_statistics.FSTestStatistic.__call__" title="Link to this definition"></a></dt>
+<dd><p>Compute test statistic for a selected feature.</p>
+<p>Computes the test statistic and parametrization for testing whether
+a specific feature in the active set has a non-zero coefficient.</p>
+<p>The test statistic follows the form:</p>
+<div class="math notranslate nohighlight">
+\[T = \eta_j^T \mathbf{y}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta_j^ = x\)</span> is the direction of the test statistic:</p>
+<div class="math notranslate nohighlight">
+\[\eta_j = x_{A}(x_{A}^T x_{A})^{-1} \bm{e}_j\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>active_set</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>k</em><em>,</em><em>)</em>) – Indices of features in the active set</p></li>
+<li><p><strong>feature_id</strong> (<em>int</em>) – Index of the feature to test (within active_set)</p></li>
+<li><p><strong>Sigma</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>n</em><em>)</em>) – Covariance matrix of the noise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>test_statistic_direction</strong> (<em>array-like, shape (n, 1)</em>) – Direction vector for the test statistic</p></li>
+<li><p><strong>a</strong> (<em>array-like, shape (n, 1)</em>) – Parametrized intercept</p></li>
+<li><p><strong>b</strong> (<em>array-like, shape (n, 1)</em>) – Parametrized coefficient</p></li>
+<li><p><strong>test_statistic</strong> (<em>float</em>) – Observed value of the test statistic</p></li>
+<li><p><strong>variance</strong> (<em>float</em>) – Variance of the test statistic under null hypothesis</p></li>
+<li><p><strong>deviation</strong> (<em>float</em>) – Standard deviation of the test statistic</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="sphx-glr-clear"></div><dl class="py class">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psi.test_statistics.</span></span><span class="sig-name descname"><span class="pre">SFS_DATestStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic" title="Link to this definition"></a></dt>
+<dd><p>Test statistic for feature selection inference after domain adaptation.</p>
+<p>This class computes test statistics for testing individual features
+after feature selection on domain-adapted data, implementing the
+post-selection inference framework for cross-domain feature validation.</p>
+<p>The test statistic is designed for testing:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_j = 0 \quad \text{vs} \quad H_1: \beta_j \neq 0\]</div>
+<p>for a specific feature <span class="math notranslate nohighlight">\(j\)</span> in the active set, where <span class="math notranslate nohighlight">\(\beta_j\)</span>
+is the coefficient of feature <span class="math notranslate nohighlight">\(j\)</span> in the target domain after
+domain adaptation via optimal transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xs</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>p</em><em>)</em>) – Source domain design matrix</p></li>
+<li><p><strong>ys</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>1</em><em>)</em>) – Source domain response vector</p></li>
+<li><p><strong>xt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>p</em><em>)</em>) – Target domain design matrix</p></li>
+<li><p><strong>yt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>1</em><em>)</em>) – Target domain response vector</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic.xs_node">
+<span class="sig-name descname"><span class="pre">xs_node</span></span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic.xs_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the source domain design matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic.ys_node">
+<span class="sig-name descname"><span class="pre">ys_node</span></span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic.ys_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the source domain response vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic.xt_node">
+<span class="sig-name descname"><span class="pre">xt_node</span></span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic.xt_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the target domain design matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic.yt_node">
+<span class="sig-name descname"><span class="pre">yt_node</span></span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic.yt_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the target domain response vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#psi.node.data.Data" title="psi.node.data.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>The test statistic accounts for the domain adaptation step by focusing
+the inference on the target domain data while using the source domain
+for adaptation. This allows for valid inference on features selected
+after optimal transport domain adaptation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="psi.test_statistics.SFS_DATestStatistic.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sigmas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#psi.test_statistics.SFS_DATestStatistic.__call__" title="Link to this definition"></a></dt>
+<dd><p>Compute test statistic for a selected feature after domain adaptation.</p>
+<p>Computes the test statistic and parametrization for testing whether
+a specific feature in the active set has a non-zero coefficient in
+the target domain after domain adaptation.</p>
+<p>The test statistic focuses on the target domain:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}T = \eta_j^T \begin{bmatrix} \mathbf{y}_s \\ \mathbf{y}_t \end{bmatrix}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\eta_j = \begin{bmatrix} \mathbf{0}_{ns} \\ \mathbf{x}_t^A(\mathbf{x}_t^{A^T}\mathbf{x}_t^A)^{-1}\mathbf{e}_j \end{bmatrix},\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(n_s\)</span> is the number of source domain samples and <span class="math notranslate nohighlight">\(\mathbf{x}_t^A\)</span> is the target domain active set design matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>active_set</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>k</em><em>,</em><em>)</em>) – Indices of features in the active set</p></li>
+<li><p><strong>feature_id</strong> (<em>int</em>) – Index of the feature to test (within active_set)</p></li>
+<li><p><strong>Sigmas</strong> (<em>list</em><em> of </em><em>array-like</em>) – List containing [Sigma_source, Sigma_target] covariance matrices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>test_statistic_direction</strong> (<em>array-like, shape (ns+nt, 1)</em>) – Direction vector for the test statistic</p></li>
+<li><p><strong>a</strong> (<em>array-like, shape (ns+nt, 1)</em>) – Parametrization intercept for combined data</p></li>
+<li><p><strong>b</strong> (<em>array-like, shape (ns+nt, 1)</em>) – Parametrization coefficient for combined data</p></li>
+<li><p><strong>test_statistic</strong> (<em>float</em>) – Observed value of the test statistic</p></li>
+<li><p><strong>variance</strong> (<em>float</em>) – Variance of the test statistic under null hypothesis</p></li>
+<li><p><strong>deviation</strong> (<em>float</em>) – Standard deviation of the test statistic</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="sphx-glr-clear"></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="psi.domain_adaptation.html" class="btn btn-neutral float-left" title="psi.domain_adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/index.html" class="btn btn-neutral float-right" title="Examples gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
