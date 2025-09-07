@@ -1,6 +1,0 @@
-﻿psi.domain\_adaptation
-======================
-
-.. currentmodule:: psi
-
-.. automodule:: domain_adaptation
