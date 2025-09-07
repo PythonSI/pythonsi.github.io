@@ -72,9 +72,9 @@ class FSTestStatistic:
         test_statistic_direction : array-like, shape (n, 1)
             Direction vector for the test statistic
         a : array-like, shape (n, 1)
-            Parametrization intercept
+            Parametrized intercept
         b : array-like, shape (n, 1)
-            Parametrization coefficient
+            Parametrized coefficient
         test_statistic : float
             Observed value of the test statistic
         variance : float
