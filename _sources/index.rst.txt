@@ -11,5 +11,5 @@ Contents
 
    self
    modules
-   examples/index
+   auto_examples/index
    release
