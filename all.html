@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API and modules &mdash; PSI Python Selective Inference First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="si.feature_selection" href="gen_modules/si.feature_selection.html" />
+    <link rel="prev" title="User guide" href="user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PSI Python Selective Inference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API and modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gen_modules/si.feature_selection.html">si.feature_selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_modules/si.domain_adaptation.html">si.domain_adaptation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_modules/si.test_statistics.html">si.test_statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-si">Main <code class="xref py py-mod docutils literal notranslate"><span class="pre">si</span></code> functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#si.Data"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.data"><code class="docutils literal notranslate"><span class="pre">Data.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.parent"><code class="docutils literal notranslate"><span class="pre">Data.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.a"><code class="docutils literal notranslate"><span class="pre">Data.a</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.b"><code class="docutils literal notranslate"><span class="pre">Data.b</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.inference_data"><code class="docutils literal notranslate"><span class="pre">Data.inference_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.inference"><code class="docutils literal notranslate"><span class="pre">Data.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.parametrize"><code class="docutils literal notranslate"><span class="pre">Data.parametrize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Data.update"><code class="docutils literal notranslate"><span class="pre">Data.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#si.Pipeline"><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#si.Pipeline.input_nodes"><code class="docutils literal notranslate"><span class="pre">Pipeline.input_nodes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Pipeline.output_node"><code class="docutils literal notranslate"><span class="pre">Pipeline.output_node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Pipeline.test_statistic"><code class="docutils literal notranslate"><span class="pre">Pipeline.test_statistic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#si.Pipeline.inference"><code class="docutils literal notranslate"><span class="pre">Pipeline.inference()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSI Python Selective Inference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API and modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/all.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-and-modules">
+<span id="sphx-glr-api-reference"></span><h1>API and modules<a class="headerlink" href="#api-and-modules" title="Link to this heading"></a></h1>
+<p><a class="reference internal" href="#module-si" title="si"><code class="xref py py-mod docutils literal notranslate"><span class="pre">si</span></code></a>:</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="gen_modules/si.feature_selection.html#module-si.feature_selection" title="si.feature_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_selection</span></code></a></p></td>
+<td><p>Feature selection methods with selective inference.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gen_modules/si.domain_adaptation.html#module-si.domain_adaptation" title="si.domain_adaptation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">domain_adaptation</span></code></a></p></td>
+<td><p>Domain adaptation methods with selective inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gen_modules/si.test_statistics.html#module-si.test_statistics" title="si.test_statistics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_statistics</span></code></a></p></td>
+<td><p>Test statistic definitions for selective inference.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="module-si">
+<span id="main-si-functions"></span><h2>Main <a class="reference internal" href="#module-si" title="si"><code class="xref py py-mod docutils literal notranslate"><span class="pre">si</span></code></a> functions<a class="headerlink" href="#module-si" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="si.Data">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">si.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/si/node/data.html#Data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Data" title="Link to this definition"></a></dt>
+<dd><p>Data object (node) which is used to store data and parametrized data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> (<em>any</em><em>, </em><em>optional</em>) – Parent node to compute data from. If None, data must be set directly.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Data.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#si.Data.data" title="Link to this definition"></a></dt>
+<dd><p>The observed data stored in this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Data.parent">
+<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#si.Data.parent" title="Link to this definition"></a></dt>
+<dd><p>Parent node for computation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Data.a">
+<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#si.Data.a" title="Link to this definition"></a></dt>
+<dd><p>Parametrized intercept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Data.b">
+<span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#si.Data.b" title="Link to this definition"></a></dt>
+<dd><p>Parametrized coefficient for inference</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Data.inference_data">
+<span class="sig-name descname"><span class="pre">inference_data</span></span><a class="headerlink" href="#si.Data.inference_data" title="Link to this definition"></a></dt>
+<dd><p>Data used in the inference process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.Data.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/si/node/data.html#Data.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Data.inference" title="Link to this definition"></a></dt>
+<dd><p>Perform inference computation with given scalar z.</p>
+<p>Computes the linear relationship <span class="math notranslate nohighlight">\(\mathbf{data} = \mathbf{a} + \mathbf{b} \cdot z\)</span>
+and retrieves the feasible interval from parent if available.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> (<em>float</em>) – Parameter value for inference computation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>inference_data</strong> (<em>array-like, shape (d,)</em>) – Computed inference data</p></li>
+<li><p><strong>a</strong> (<em>array-like, shape (d,)</em>) – Parametrized intercept</p></li>
+<li><p><strong>b</strong> (<em>array-like, shape (d,)</em>) – Parametrized coefficient</p></li>
+<li><p><strong>interval</strong> (<em>list of float</em>) – Feasible interval from parent or [-inf, inf] if no parent</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.Data.parametrize">
+<span class="sig-name descname"><span class="pre">parametrize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/si/node/data.html#Data.parametrize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Data.parametrize" title="Link to this definition"></a></dt>
+<dd><p>Set parameters for selective inference process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>d</em><em>,</em><em>)</em><em>, </em><em>optional</em>) – Linear intercept parameter</p></li>
+<li><p><strong>b</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>d</em><em>,</em><em>)</em><em>, </em><em>optional</em>) – Linear coefficient parameter</p></li>
+<li><p><strong>data</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>d</em><em>)</em><em>, </em><em>optional</em>) – Inference data to store</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.Data.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/si/node/data.html#Data.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Data.update" title="Link to this definition"></a></dt>
+<dd><p>Update the observed data stored in this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>d</em><em>)</em>) – New data to store in the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="si.Pipeline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">si.</span></span><span class="sig-name descname"><span class="pre">Pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_statistic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/si/pipeline.html#Pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Pipeline" title="Link to this definition"></a></dt>
+<dd><p>Selective inference for Feature selection pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<em>list</em><em> of </em><a class="reference internal" href="#si.Data" title="si.Data"><em>Data</em></a>) – Input datas for the pipeline</p></li>
+<li><p><strong>output</strong> (<a class="reference internal" href="#si.Data" title="si.Data"><em>Data</em></a>) – Output data for the pipeline</p></li>
+<li><p><strong>test_statistic</strong> (<em>object</em>) – Chosen test statistic for inference</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Pipeline.input_nodes">
+<span class="sig-name descname"><span class="pre">input_nodes</span></span><a class="headerlink" href="#si.Pipeline.input_nodes" title="Link to this definition"></a></dt>
+<dd><p>Input data nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#si.Data" title="si.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Pipeline.output_node">
+<span class="sig-name descname"><span class="pre">output_node</span></span><a class="headerlink" href="#si.Pipeline.output_node" title="Link to this definition"></a></dt>
+<dd><p>Output data node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#si.Data" title="si.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.Pipeline.test_statistic">
+<span class="sig-name descname"><span class="pre">test_statistic</span></span><a class="headerlink" href="#si.Pipeline.test_statistic" title="Link to this definition"></a></dt>
+<dd><p>Test statistic computation object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.Pipeline.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">covariances</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/si/pipeline.html#Pipeline.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.Pipeline.inference" title="Link to this definition"></a></dt>
+<dd><p>Perform selective inference for a single specific data based on
+the chosen hypothesis and test statistic.</p>
+<p>For example, testing if a specific selected feature has a non-zero coefficient</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_id</strong> (<em>int</em>) – Index of the feature to test (within selected features)</p></li>
+<li><p><strong>covariances</strong> (<em>list</em><em> of </em><em>array-like</em>) – Covariance matrices for noise in each input</p></li>
+<li><p><strong>output</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>k</em><em>,</em><em>)</em>) – Array of selected feature indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>p_value</strong> – Selective p-value for the data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_guide.html" class="btn btn-neutral float-left" title="User guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gen_modules/si.feature_selection.html" class="btn btn-neutral float-right" title="si.feature_selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>si.domain_adaptation &mdash; PSI Python Selective Inference First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="si.test_statistics" href="si.test_statistics.html" />
+    <link rel="prev" title="si.feature_selection" href="si.feature_selection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PSI Python Selective Inference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../all.html">API and modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="si.feature_selection.html">si.feature_selection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">si.domain_adaptation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#si.domain_adaptation.OptimalTransportDA"><code class="docutils literal notranslate"><span class="pre">OptimalTransportDA</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="si.test_statistics.html">si.test_statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../all.html#module-si">Main <code class="xref py py-mod docutils literal notranslate"><span class="pre">si</span></code> functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to PSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_of_conduct.html">Code of conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PSI Python Selective Inference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../all.html">API and modules</a></li>
+      <li class="breadcrumb-item active">si.domain_adaptation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/gen_modules/si.domain_adaptation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-si.domain_adaptation">
+<span id="si-domain-adaptation"></span><h1>si.domain_adaptation<a class="headerlink" href="#module-si.domain_adaptation" title="Link to this heading"></a></h1>
+<p>Domain adaptation methods with selective inference.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">si.domain_adaptation.</span></span><span class="sig-name descname"><span class="pre">OptimalTransportDA</span></span><a class="reference internal" href="../_modules/si/domain_adaptation/optimal_transport.html#OptimalTransportDA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA" title="Link to this definition"></a></dt>
+<dd><p>Optimal Transport Domain Adaptation with selective inference support.</p>
+<p>The optimal transport problem solved is:</p>
+<div class="math notranslate nohighlight">
+\[\min_{T \in \mathcal{P}} \langle C, T \rangle\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> is the set of transport plans with given marginals
+and <span class="math notranslate nohighlight">\(C\)</span> is the cost matrix between domains.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.x_source_node">
+<span class="sig-name descname"><span class="pre">x_source_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.x_source_node" title="Link to this definition"></a></dt>
+<dd><p>Source domain feature node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.y_source_node">
+<span class="sig-name descname"><span class="pre">y_source_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.y_source_node" title="Link to this definition"></a></dt>
+<dd><p>Source domain label node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.x_target_node">
+<span class="sig-name descname"><span class="pre">x_target_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.x_target_node" title="Link to this definition"></a></dt>
+<dd><p>Target domain feature node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.y_target_node">
+<span class="sig-name descname"><span class="pre">y_target_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.y_target_node" title="Link to this definition"></a></dt>
+<dd><p>Target domain label node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.x_output_node">
+<span class="sig-name descname"><span class="pre">x_output_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.x_output_node" title="Link to this definition"></a></dt>
+<dd><p>Adapted feature output node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.y_output_node">
+<span class="sig-name descname"><span class="pre">y_output_node</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.y_output_node" title="Link to this definition"></a></dt>
+<dd><p>Adapted label output node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#si.Data" title="si.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.interval">
+<span class="sig-name descname"><span class="pre">interval</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.interval" title="Link to this definition"></a></dt>
+<dd><p>Feasible interval for the last inference call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.x_output_data">
+<span class="sig-name descname"><span class="pre">x_output_data</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.x_output_data" title="Link to this definition"></a></dt>
+<dd><p>Stored adapted features from last inference call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.y_output_data">
+<span class="sig-name descname"><span class="pre">y_output_data</span></span><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.y_output_data" title="Link to this definition"></a></dt>
+<dd><p>Stored adapted labels from last inference call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/si/domain_adaptation/optimal_transport.html#OptimalTransportDA.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.forward" title="Link to this definition"></a></dt>
+<dd><p>Solve optimal transport and construct adapted dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xs</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>d</em><em>)</em>) – Source domain features</p></li>
+<li><p><strong>ys</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>1</em><em>)</em>) – Source domain labels</p></li>
+<li><p><strong>xt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>d</em><em>)</em>) – Target domain features</p></li>
+<li><p><strong>yt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>1</em><em>)</em>) – Target domain labels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x_tilde</strong> (<em>array-like, shape (ns+nt, d)</em>) – Adapted feature matrix</p></li>
+<li><p><strong>y_tilde</strong> (<em>array-like, shape (ns+nt, 1)</em>) – Adapted label vector</p></li>
+<li><p><strong>B</strong> (<em>list of int</em>) – Basic feasible solution indices</p></li>
+<li><p><strong>c_features</strong> (<em>array-like, shape (ns*nt, 1)</em>) – Feature space cost matrix</p></li>
+<li><p><strong>Omega</strong> (<em>array-like, shape (ns+nt, ns+nt)</em>) – Transformation matrix for adaptation</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The adapted dataset is constructed as:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\tilde{\mathbf{x}} = \Omega \begin{bmatrix} \mathbf{x}_s \\ \mathbf{x}_t \end{bmatrix}\end{split}\\\begin{split}\tilde{\mathbf{y}} = \Omega \begin{bmatrix} \mathbf{y}_s \\ \mathbf{y}_t \end{bmatrix}\end{split}\end{aligned}\end{align} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\Omega\)</span> incorporates the optimal transport plan.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/si/domain_adaptation/optimal_transport.html#OptimalTransportDA.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.inference" title="Link to this definition"></a></dt>
+<dd><p>Find feasible interval of the Optimal Transport for the parametrized data at z .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> (<em>float</em>) – Scalar parameter</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>final_interval</strong> – Feasible interval [lower, upper] for z</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="si.domain_adaptation.OptimalTransportDA.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">yt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../all.html#si.Data" title="si.node.data.Data"><span class="pre">Data</span></a></span></span><a class="reference internal" href="../_modules/si/domain_adaptation/optimal_transport.html#OptimalTransportDA.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#si.domain_adaptation.OptimalTransportDA.run" title="Link to this definition"></a></dt>
+<dd><p>Configure domain adaptation with input data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xs</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>d</em><em>)</em>) – Source domain features</p></li>
+<li><p><strong>ys</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>ns</em><em>, </em><em>1</em><em>)</em>) – Source domain labels</p></li>
+<li><p><strong>xt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>d</em><em>)</em>) – Target domain features</p></li>
+<li><p><strong>yt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nt</em><em>, </em><em>1</em><em>)</em>) – Target domain labels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x_output_node</strong> (<em>Data</em>) – Node containing adapted features</p></li>
+<li><p><strong>y_output_node</strong> (<em>Data</em>) – Node containing adapted labels</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ot_da</span> <span class="o">=</span> <span class="n">OptimalTransportDA</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_out</span><span class="p">,</span> <span class="n">y_out</span> <span class="o">=</span> <span class="n">ot_da</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapted_x</span> <span class="o">=</span> <span class="n">x_out</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="sphx-glr-clear"></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="si.feature_selection.html" class="btn btn-neutral float-left" title="si.feature_selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="si.test_statistics.html" class="btn btn-neutral float-right" title="si.test_statistics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

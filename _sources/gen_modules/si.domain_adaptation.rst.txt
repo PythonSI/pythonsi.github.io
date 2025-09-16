@@ -1,0 +1,31 @@
+﻿si.domain_adaptation
+====================
+
+.. automodule:: si.domain_adaptation
+   :no-members:
+
+   
+   
+   
+
+   
+   
+
+   Classes
+   -------
+
+   
+   .. autoclass:: OptimalTransportDA
+      :members:
+
+   .. include:: backreferences/si.domain_adaptation.OptimalTransportDA.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
+   
+   
+
+   
+   
+   
