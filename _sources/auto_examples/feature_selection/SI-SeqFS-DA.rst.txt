@@ -48,24 +48,30 @@ SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptat
 Define the pipeline
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-36
+.. GENERATED FROM PYTHON SOURCE LINES 19-42
 
 .. code-block:: Python
 
 
+
     def SI_SeqFS_DA(k) -> Pipeline:
         xs = Data()
-        ys = Data() 
-    
+        ys = Data()
+
         xt = Data()
         yt = Data()
-    
+
         OT = OptimalTransportDA()
         x_tilde, y_tilde = OT.run(xs=xs, ys=ys, xt=xt, yt=yt)
 
-        seqfs = SequentialFeatureSelection(k,direction="forward")
+        seqfs = SequentialFeatureSelection(k, direction="forward")
         active_set = seqfs.run(x_tilde, y_tilde)
-        return Pipeline(inputs=(xs, ys, xt, yt), output=active_set, test_statistic=SFS_DATestStatistic(xs=xs, ys=ys, xt=xt, yt=yt))
+        return Pipeline(
+            inputs=(xs, ys, xt, yt),
+            output=active_set,
+            test_statistic=SFS_DATestStatistic(xs=xs, ys=ys, xt=xt, yt=yt),
+        )
+
 
     my_pipeline = SI_SeqFS_DA(3)
 
@@ -76,24 +82,26 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 Generate data
--------------- 
+--------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-52
+.. GENERATED FROM PYTHON SOURCE LINES 45-60
 
 .. code-block:: Python
 
 
+
     def gen_data(n, p, true_beta):
-        x = np.random.normal(loc = 0, scale = 1, size = (n, p))
+        x = np.random.normal(loc=0, scale=1, size=(n, p))
         true_beta = true_beta.reshape(-1, 1)
-    
+
         mu = x.dot(true_beta)
         Sigma = np.identity(n)
-        Y = mu + np.random.normal(loc = 0, scale = 1, size = (n, 1))
+        Y = mu + np.random.normal(loc=0, scale=1, size=(n, 1))
         return x, Y, Sigma
+
 
     xs, ys, sigma_s = gen_data(150, 5, np.asarray([0, 0, 0, 0, 0]))
     xt, yt, sigma_t = gen_data(25, 5, np.asarray([0, 0, 0, 0, 0]))
@@ -105,17 +113,19 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 Run the pipeline
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-61
+.. GENERATED FROM PYTHON SOURCE LINES 63-71
 
 .. code-block:: Python
 
 
-    selected_features, p_values = my_pipeline(inputs=[xs, ys, xt, yt], covariances=[sigma_s, sigma_t])
+    selected_features, p_values = my_pipeline(
+        inputs=[xs, ys, xt, yt], covariances=[sigma_s, sigma_t]
+    )
 
     print("Selected features: ", selected_features)
     print("P-values: ", p_values)
@@ -128,17 +138,17 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0, 2, 4]
-    P-values:  [0.18810734439446689, 0.9515698730223048, 0.1077605913522951]
+    Selected features:  [2, 0, 1]
+    P-values:  [0.4282200393610236, 0.5294939655609314, 0.8966511835684821]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-63
+.. GENERATED FROM PYTHON SOURCE LINES 72-73
 
 Plot the p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-67
+.. GENERATED FROM PYTHON SOURCE LINES 73-78
 
 .. code-block:: Python
 
@@ -147,6 +157,7 @@ Plot the p-values
     plt.xlabel("Feature index")
     plt.ylabel("P-value")
     plt.show()
+
 
 
 .. image-sg:: /auto_examples/feature_selection/images/sphx_glr_SI-SeqFS-DA_001.png
@@ -161,7 +172,7 @@ Plot the p-values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 37.031 seconds)
+   **Total running time of the script:** (1 minutes 34.808 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_SI-SeqFS-DA.py:
