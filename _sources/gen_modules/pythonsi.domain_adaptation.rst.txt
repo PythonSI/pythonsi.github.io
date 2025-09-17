@@ -1,0 +1,31 @@
+﻿pythonsi.domain_adaptation
+==========================
+
+.. automodule:: pythonsi.domain_adaptation
+   :no-members:
+
+   
+   
+   
+
+   
+   
+
+   Classes
+   -------
+
+   
+   .. autoclass:: OptimalTransportDA
+      :members:
+
+   .. include:: backreferences/pythonsi.domain_adaptation.OptimalTransportDA.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
+   
+   
+
+   
+   
+   

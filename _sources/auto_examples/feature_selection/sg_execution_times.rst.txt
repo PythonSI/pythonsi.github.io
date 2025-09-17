@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:35.205** total execution time for 4 files **from auto_examples\feature_selection**:
+**02:28.524** total execution time for 4 files **from auto_examples\feature_selection**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_feature_selection_SI-SeqFS-DA.py` (``SI-SeqFS-DA.py``)
-     - 01:34.808
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_feature_selection_SeqFS.py` (``SeqFS.py``)
-     - 00:00.397
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_feature_selection_LassoFS.py` (``LassoFS.py``)
-     - 00:00.000
+     - 01:28.476
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_SFS_DA.py` (``SFS_DA.py``)
-     - 00:00.000
+     - 00:59.603
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_feature_selection_SeqFS.py` (``SeqFS.py``)
+     - 00:00.240
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_feature_selection_LassoFS.py` (``LassoFS.py``)
+     - 00:00.206
      - 0.0

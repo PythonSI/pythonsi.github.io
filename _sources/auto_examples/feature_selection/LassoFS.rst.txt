@@ -28,10 +28,10 @@ Selective inference for Lasso Feature Selection
 
     # Author: Tran Tuan Kiet
 
-    from si import Pipeline
-    from si.feature_selection import LassoFeatureSelection
-    from si import Data
-    from si.test_statistics import FSTestStatistic
+    from pythonsi import Pipeline
+    from pythonsi.feature_selection import LassoFeatureSelection
+    from pythonsi import Data
+    from pythonsi.test_statistics import FSTestStatistic
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -125,8 +125,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [1 4]
-    P-values:  [0.9830210412192201, 0.29786458142943245]
+    Selected features:  [0 1]
+    P-values:  [0.5178177306170819, 0.9851409946648416]
 
 
 
@@ -159,7 +159,7 @@ Plot the p-values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.215 seconds)
+   **Total running time of the script:** (0 minutes 0.206 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_LassoFS.py:

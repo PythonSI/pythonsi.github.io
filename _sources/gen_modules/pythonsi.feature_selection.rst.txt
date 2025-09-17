@@ -1,0 +1,39 @@
+﻿pythonsi.feature_selection
+==========================
+
+.. automodule:: pythonsi.feature_selection
+   :no-members:
+
+   
+   
+   
+
+   
+   
+
+   Classes
+   -------
+
+   
+   .. autoclass:: LassoFeatureSelection
+      :members:
+
+   .. include:: backreferences/pythonsi.feature_selection.LassoFeatureSelection.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
+   .. autoclass:: SequentialFeatureSelection
+      :members:
+
+   .. include:: backreferences/pythonsi.feature_selection.SequentialFeatureSelection.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
+   
+   
+
+   
+   
+   

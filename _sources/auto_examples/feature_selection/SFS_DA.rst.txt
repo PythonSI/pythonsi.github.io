@@ -28,11 +28,11 @@ SI for Feature Selection after Optimal Transport-based Domain Adaptation
 
     # Author: Tran Tuan Kiet
 
-    from si import Pipeline
-    from si.feature_selection import LassoFeatureSelection
-    from si import Data
-    from si.test_statistics import SFS_DATestStatistic
-    from si.domain_adaptation import OptimalTransportDA
+    from pythonsi import Pipeline
+    from pythonsi.feature_selection import LassoFeatureSelection
+    from pythonsi import Data
+    from pythonsi.test_statistics import SFS_DATestStatistic
+    from pythonsi.domain_adaptation import OptimalTransportDA
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -138,8 +138,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0 2 3]
-    P-values:  [0.7333767510529126, 0.23861333967117399, 0.0434891602742352]
+    Selected features:  [2 3]
+    P-values:  [0.4822368240752217, 0.37394506101504255]
 
 
 
@@ -172,7 +172,7 @@ Plot the p-values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 47.076 seconds)
+   **Total running time of the script:** (0 minutes 59.603 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_SFS_DA.py:

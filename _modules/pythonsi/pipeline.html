@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythonsi.pipeline &mdash; PSI Python Selective Inference First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PSI Python Selective Inference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../all.html">API and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to PSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_of_conduct.html">Code of conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PSI Python Selective Inference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythonsi.pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythonsi.pipeline</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_p_value</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">line_search</span><span class="p">(</span><span class="n">output_node</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">z_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">z_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">step_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5e-4</span><span class="p">):</span>
+    <span class="n">list_intervals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">list_outputs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">z_min</span>
+    <span class="k">while</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">z_max</span><span class="p">:</span>
+        <span class="c1"># print(f&quot;Line search at z = {z}&quot;)</span>
+        <span class="n">output</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">interval_of_z</span> <span class="o">=</span> <span class="n">output_node</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">)</span>
+
+        <span class="n">interval_of_z</span> <span class="o">=</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">interval_of_z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">z_min</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">interval_of_z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z_max</span><span class="p">)]</span>
+
+        <span class="n">list_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interval_of_z</span><span class="p">)</span>
+        <span class="n">list_outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+        <span class="c1"># # For debug:</span>
+        <span class="c1"># print(f&quot;z: {z}, interval: {interval_of_z}, output: {output}&quot;)</span>
+
+        <span class="n">z</span> <span class="o">=</span> <span class="n">interval_of_z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">step_size</span>
+
+    <span class="k">return</span> <span class="n">list_intervals</span><span class="p">,</span> <span class="n">list_outputs</span>
+
+
+<div class="viewcode-block" id="Pipeline">
+<a class="viewcode-back" href="../../all.html#pythonsi.Pipeline">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Selective inference for Feature selection pipeline.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs : list of Data</span>
+<span class="sd">        Input datas for the pipeline</span>
+<span class="sd">    output : Data</span>
+<span class="sd">        Output data for the pipeline</span>
+<span class="sd">    test_statistic : object</span>
+<span class="sd">        Chosen test statistic for inference</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_nodes : list of Data</span>
+<span class="sd">        Input data nodes</span>
+<span class="sd">    output_node : Data</span>
+<span class="sd">        Output data node</span>
+<span class="sd">    test_statistic : object</span>
+<span class="sd">        Test statistic computation object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">],</span> <span class="n">output</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_nodes</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_node</span> <span class="o">=</span> <span class="n">output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_statistic</span> <span class="o">=</span> <span class="n">test_statistic</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]],</span>
+        <span class="n">covariances</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]],</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Execute the pipeline and inference on the observed output.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs : list of array-like</span>
+<span class="sd">            Input data arrays corresponding to input_nodes</span>
+<span class="sd">        covariances : list of array-like</span>
+<span class="sd">            Covariance matrices for noise in each input</span>
+<span class="sd">        verbose : bool, optional</span>
+<span class="sd">            Whether to print detailed progress information, default False</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        outputs : array-like, shape (k,)</span>
+<span class="sd">            Output data</span>
+<span class="sd">        p_values : list of float</span>
+<span class="sd">            Selective p-values for the output data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_nodes</span><span class="p">):</span>
+            <span class="n">input_node</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_node</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected output: </span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">list_p_value</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">output_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing feature </span><span class="si">{</span><span class="n">output_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">p_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span>
+                <span class="n">output_id</span><span class="o">=</span><span class="n">output_id</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">covariances</span><span class="o">=</span><span class="n">covariances</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature </span><span class="si">{</span><span class="n">output_id</span><span class="si">}</span><span class="s2">: p-value = </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">list_p_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">list_p_value</span>
+
+<div class="viewcode-block" id="Pipeline.inference">
+<a class="viewcode-back" href="../../all.html#pythonsi.Pipeline.inference">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">output_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">covariances</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]],</span>
+        <span class="n">output</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Perform selective inference for a single specific data based on</span>
+<span class="sd">        the chosen hypothesis and test statistic.</span>
+
+<span class="sd">        For example, testing if a specific selected feature has a non-zero coefficient</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        feature_id : int</span>
+<span class="sd">            Index of the feature to test (within selected features)</span>
+<span class="sd">        covariances : list of array-like</span>
+<span class="sd">            Covariance matrices for noise in each input</span>
+<span class="sd">        output : array-like, shape (k,)</span>
+<span class="sd">            Array of selected feature indices</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        p_value : float</span>
+<span class="sd">            Selective p-value for the data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">test_statistic_direction</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">deviation</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">test_statistic</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">output_id</span><span class="p">,</span> <span class="n">covariances</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># # For debug:</span>
+        <span class="c1"># print(f&quot;Test statistic: {test_statistic}&quot;)</span>
+
+        <span class="n">list_intervals</span><span class="p">,</span> <span class="n">list_outputs</span> <span class="o">=</span> <span class="n">line_search</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output_node</span><span class="p">,</span>
+            <span class="n">z_min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">),</span>
+            <span class="n">z_max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">),</span>
+            <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">p_value</span> <span class="o">=</span> <span class="n">compute_p_value</span><span class="p">(</span>
+            <span class="n">test_statistic</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">list_intervals</span><span class="p">,</span> <span class="n">list_outputs</span><span class="p">,</span> <span class="n">output</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">p_value</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

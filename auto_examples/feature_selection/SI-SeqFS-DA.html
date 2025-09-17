@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation &mdash; PSI Python Selective Inference First pre-release documentation</title>
+  <title>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation &mdash; PySelectInf Python Selective Inference 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -36,7 +36,7 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            PSI Python Selective Inference
+            PySelectInf Python Selective Inference
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -80,7 +80,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">PSI Python Selective Inference</a>
+          <a href="../../index.html">PySelectInf Python Selective Inference</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -108,11 +108,11 @@ to download the full example code.</p>
 <span id="sphx-glr-auto-examples-feature-selection-si-seqfs-da-py"></span><h1>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation<a class="headerlink" href="#si-for-sequential-feature-selection-after-optimal-transport-based-domain-adaptation" title="Link to this heading"></a></h1>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Duong Tan Loc</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">si</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">si.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SequentialFeatureSelection</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">si</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">si.test_statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SFS_DATestStatistic</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">si.domain_adaptation</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalTransportDA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SequentialFeatureSelection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi.test_statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SFS_DATestStatistic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi.domain_adaptation</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalTransportDA</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
@@ -169,8 +169,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 0, 1]
-P-values:  [0.4282200393610236, 0.5294939655609314, 0.8966511835684821]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 3, 1]
+P-values:  [0.44595181103836, 0.37749041104178455, 0.1758837107802067]
 </pre></div>
 </div>
 <p>Plot the p-values</p>
@@ -181,7 +181,7 @@ P-values:  [0.4282200393610236, 0.5294939655609314, 0.8966511835684821]
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_SI-SeqFS-DA_001.png" srcset="../../_images/sphx_glr_SI-SeqFS-DA_001.png" alt="SI SeqFS DA" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 34.808 seconds)</p>
+<img src="../../_images/sphx_glr_SI-SeqFS-DA_001.png" srcset="../../_images/sphx_glr_SI-SeqFS-DA_001.png" alt="SI SeqFS DA" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 28.476 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-si-seqfs-da-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0afc7a8901794aa352b465086e06b797/SI-SeqFS-DA.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">SI-SeqFS-DA.ipynb</span></code></a></p>
@@ -208,7 +208,7 @@ P-values:  [0.4282200393610236, 0.5294939655609314, 0.8966511835684821]
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, PSI Contributors.</p>
+    <p>&#169; Copyright 2025, PySelectInf Contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
