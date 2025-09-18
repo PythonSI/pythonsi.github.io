@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API and modules &mdash; PySelectInf Python Selective Inference 0.0.1 documentation</title>
+  <title>API and modules &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
@@ -17,7 +17,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/documentation_options.js?v=d2e176e1"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -37,7 +37,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            PySelectInf Python Selective Inference
+            PythonSI: Python Selective Inference
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -48,13 +48,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">PythonSI: Python Selective Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API and modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gen_modules/pythonsi.feature_selection.html">pythonsi.feature_selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gen_modules/pythonsi.domain_adaptation.html">pythonsi.domain_adaptation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gen_modules/pythonsi.test_statistics.html">pythonsi.test_statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#main-pythonsi-functions">Main <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code> functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-pythonsi-functions-and-classes">Global <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code> functions and classes:</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pythonsi.Data"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pythonsi.Data.data"><code class="docutils literal notranslate"><span class="pre">Data.data</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pythonsi.Data.parent"><code class="docutils literal notranslate"><span class="pre">Data.parent</span></code></a></li>
@@ -80,7 +80,7 @@
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PythonSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Code of conduct</a></li>
 </ul>
 
@@ -90,7 +90,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">PySelectInf Python Selective Inference</a>
+          <a href="index.html">PythonSI: Python Selective Inference</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -124,8 +124,8 @@
 </tr>
 </tbody>
 </table>
-<section id="main-pythonsi-functions">
-<h2>Main <a class="reference internal" href="#module-pythonsi" title="pythonsi"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code></a> functions<a class="headerlink" href="#main-pythonsi-functions" title="Link to this heading"></a></h2>
+<section id="global-pythonsi-functions-and-classes">
+<h2>Global <a class="reference internal" href="#module-pythonsi" title="pythonsi"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code></a> functions and classes:<a class="headerlink" href="#global-pythonsi-functions-and-classes" title="Link to this heading"></a></h2>
 <dl class="py class" id="module-pythonsi">
 <dt class="sig sig-object py" id="pythonsi.Data">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythonsi.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonsi/node/data.html#Data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythonsi.Data" title="Link to this definition"></a></dt>
@@ -325,7 +325,7 @@ the chosen hypothesis and test statistic.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, PySelectInf Contributors.</p>
+    <p>&#169; Copyright 2025, PythonSI Contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

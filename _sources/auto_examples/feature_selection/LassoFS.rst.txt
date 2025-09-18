@@ -125,8 +125,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0 1]
-    P-values:  [0.5178177306170819, 0.9851409946648416]
+    Selected features:  [1 2]
+    P-values:  [0.7656268631922605, 0.7830545059545666]
 
 
 
@@ -155,11 +155,6 @@ Plot the p-values
 
 
 
-
-
-.. rst-class:: sphx-glr-timing
-
-   **Total running time of the script:** (0 minutes 0.206 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_LassoFS.py:

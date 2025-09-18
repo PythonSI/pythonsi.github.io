@@ -19,8 +19,8 @@ API and modules
    test_statistics
 
 
-Main :py:mod:`pythonsi` functions
----------------------------
+Global :py:mod:`pythonsi` functions and classes:
+----------------------------------------------
 
 .. automodule:: pythonsi
    :members:

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation &mdash; PySelectInf Python Selective Inference 0.0.1 documentation</title>
+  <title>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
@@ -17,13 +17,13 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../_static/documentation_options.js?v=d2e176e1"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Selective inference for Sequential Feature Selection" href="SeqFS.html" />
+    <link rel="next" title="Releases" href="../../releases.html" />
     <link rel="prev" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" href="SFS_DA.html" /> 
 </head>
 
@@ -36,7 +36,7 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            PySelectInf Python Selective Inference
+            PythonSI: Python Selective Inference
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -47,12 +47,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">PSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PythonSI: Python Selective Inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../all.html">API and modules</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective inference for Lasso Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">SI for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#define-the-pipeline">Define the pipeline</a></li>
@@ -60,17 +61,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#run-the-pipeline">Run the pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html">Feature Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sg_execution_times.html">Computation times</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to PSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to PythonSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../code_of_conduct.html">Code of conduct</a></li>
 </ul>
 
@@ -80,7 +77,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">PySelectInf Python Selective Inference</a>
+          <a href="../../index.html">PythonSI: Python Selective Inference</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -169,8 +166,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 3, 1]
-P-values:  [0.44595181103836, 0.37749041104178455, 0.1758837107802067]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 4, 0]
+P-values:  [0.5273158386554258, 0.487962261600128, 0.15259584667485132]
 </pre></div>
 </div>
 <p>Plot the p-values</p>
@@ -181,8 +178,7 @@ P-values:  [0.44595181103836, 0.37749041104178455, 0.1758837107802067]
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_SI-SeqFS-DA_001.png" srcset="../../_images/sphx_glr_SI-SeqFS-DA_001.png" alt="SI SeqFS DA" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 28.476 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-si-seqfs-da-py">
+<img src="../../_images/sphx_glr_SI-SeqFS-DA_001.png" srcset="../../_images/sphx_glr_SI-SeqFS-DA_001.png" alt="SI SeqFS DA" class = "sphx-glr-single-img"/><div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-si-seqfs-da-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0afc7a8901794aa352b465086e06b797/SI-SeqFS-DA.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">SI-SeqFS-DA.ipynb</span></code></a></p>
 </div>
@@ -202,13 +198,13 @@ P-values:  [0.44595181103836, 0.37749041104178455, 0.1758837107802067]
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="SFS_DA.html" class="btn btn-neutral float-left" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SeqFS.html" class="btn btn-neutral float-right" title="Selective inference for Sequential Feature Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../releases.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, PySelectInf Contributors.</p>
+    <p>&#169; Copyright 2025, PythonSI Contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

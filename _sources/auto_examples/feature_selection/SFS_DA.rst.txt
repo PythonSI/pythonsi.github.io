@@ -138,8 +138,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [2 3]
-    P-values:  [0.4822368240752217, 0.37394506101504255]
+    Selected features:  [0 1 4]
+    P-values:  [0.6693123237997645, 0.6214032858063625, 0.4640816152430277]
 
 
 
@@ -168,11 +168,6 @@ Plot the p-values
 
 
 
-
-
-.. rst-class:: sphx-glr-timing
-
-   **Total running time of the script:** (0 minutes 59.603 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_SFS_DA.py:
