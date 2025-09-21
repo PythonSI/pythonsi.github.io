@@ -23,6 +23,14 @@
    .. raw:: html
 
 	       <div class="sphx-glr-clear"></div>
+   .. autoclass:: RepresentationLearningDA
+      :members:
+
+   .. include:: backreferences/pythonsi.domain_adaptation.RepresentationLearningDA.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
    
    
 

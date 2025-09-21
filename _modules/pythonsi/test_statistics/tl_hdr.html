@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythonsi.test_statistics.tl_hdr &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PythonSI: Python Selective Inference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">PythonSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../all.html">API and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to PythonSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_of_conduct.html">Code of conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PythonSI: Python Selective Inference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pythonsi.test_statistics.tl_hdr</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pythonsi.test_statistics.tl_hdr</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">block_diag</span>
+
+
+<div class="viewcode-block" id="TLHDRTestStatistic">
+<a class="viewcode-back" href="../../../gen_modules/pythonsi.test_statistics.html#pythonsi.test_statistics.TLHDRTestStatistic">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TLHDRTestStatistic</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test statistic for selection inference in high-dimensional regression</span>
+<span class="sd">    after transfer learning with multiple source domains.</span>
+
+<span class="sd">    This class computes test statistics for testing individual features</span>
+<span class="sd">    after feature selection via a transfer learning procedure, implementing</span>
+<span class="sd">    the post-selection inference framework for high-dimensional regression.</span>
+
+<span class="sd">    The test statistic is designed for testing:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        H_0: \beta_j = 0 \quad \text{vs} \quad H_1: \beta_j \neq 0,</span>
+
+<span class="sd">    where :math:`\beta_j` is the coefficient of feature :math:`j` in the</span>
+<span class="sd">    target domain after transfer learning and feature selection.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    XS_list : array-like, shape (K, nS, p)</span>
+<span class="sd">        A 3D numpy array containing **source domain design matrices**.</span>
+<span class="sd">        - ``K``: number of source domains</span>
+<span class="sd">        - ``nS``: sample size per source domain</span>
+<span class="sd">        - ``p``: number of features (shared across domains)</span>
+
+<span class="sd">        The array is structured such that ``XS_list[k]`` corresponds to</span>
+<span class="sd">        the design matrix of the :math:`k`-th source domain, with shape</span>
+<span class="sd">        ``(nS, p)``.</span>
+
+<span class="sd">    YS_list : array-like, shape (K * nS, 1)</span>
+<span class="sd">        A 2D numpy array containing the **source domain response vectors**</span>
+<span class="sd">        stacked vertically across all ``K`` source domains.</span>
+<span class="sd">        - The first ``nS`` rows correspond to the first source domain,</span>
+<span class="sd">          the next ``nS`` to the second, and so on.</span>
+
+<span class="sd">    X0 : array-like, shape (nT, p)</span>
+<span class="sd">        Target domain design matrix.</span>
+<span class="sd">        - ``nT``: number of samples in the target domain</span>
+<span class="sd">        - ``p``: number of features (same as in source domains)</span>
+
+<span class="sd">    Y0 : array-like, shape (nT, 1)</span>
+<span class="sd">        Target domain response vector.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    XS_list_node : Data</span>
+<span class="sd">        Node containing the collection of source domain design matrices.</span>
+<span class="sd">    YS_list_node : Data</span>
+<span class="sd">        Node containing the stacked source domain response vector.</span>
+<span class="sd">    X0_node : Data</span>
+<span class="sd">        Node containing the target domain design matrix.</span>
+<span class="sd">    Y0_node : Data</span>
+<span class="sd">        Node containing the target domain response vector.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The test statistic accounts for the transfer learning step by focusing</span>
+<span class="sd">    the inference on the target domain while leveraging information from</span>
+<span class="sd">    multiple source domains. This allows for valid inference on features selected after the transfer</span>
+<span class="sd">    learning process.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">XS_list</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span>
+        <span class="n">YS_list</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span>
+        <span class="n">X0</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span>
+        <span class="n">Y0</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">XS_list_node</span> <span class="o">=</span> <span class="n">XS_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">YS_list_node</span> <span class="o">=</span> <span class="n">YS_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X0_node</span> <span class="o">=</span> <span class="n">X0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Y0_node</span> <span class="o">=</span> <span class="n">Y0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">active_set</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">],</span>
+        <span class="n">feature_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">Sigmas</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">]],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span>
+        <span class="nb">list</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">],</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">list</span>
+    <span class="p">]:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute test statistic for a selected feature after transfer learning.</span>
+
+<span class="sd">        Computes the test statistic and parametrization for testing</span>
+<span class="sd">        whether a specific feature in the active set has a non-zero</span>
+<span class="sd">        coefficient in the target domain after feature selection via transfer learning.</span>
+
+<span class="sd">        The test statistic focuses on the target domain:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            \tau_j = \bm{\eta}_j^\top</span>
+<span class="sd">            \begin{pmatrix} \bm{Y}^S \\ \bm{Y}^{(0)} \end{pmatrix},</span>
+
+<span class="sd">        where:</span>
+
+<span class="sd">        - :math:`\bm{Y}^S` is the stacked response vector from all</span>
+<span class="sd">        source domains,</span>
+<span class="sd">        - :math:`\bm{Y}^{(0)}` is the target domain response vector,</span>
+<span class="sd">        - :math:`\bm{\eta}_j` is the direction vector associated with testing the</span>
+<span class="sd">        coefficient of feature :math:`j` in the target domain active set.</span>
+
+<span class="sd">        The direction vector is constructed as:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            \bm{\eta}_j = \begin{pmatrix}</span>
+<span class="sd">            \bm{0}_{K n_S} \\</span>
+<span class="sd">            X^{(0)}_\mathcal{M} \left({X^{(0)}_\mathcal{M}}^\top X^{(0)}_\mathcal{M}\right)^{-1} \bm{e}_j</span>
+<span class="sd">            \end{pmatrix},</span>
+
+<span class="sd">        where:</span>
+<span class="sd">        - :math:`K` is the number of source domains,</span>
+<span class="sd">        - :math:`n_S` is the number of samples per source domain,</span>
+<span class="sd">        - :math:`X^{(0)}_\mathcal{M}` is the target domain design matrix restricted to the active set,</span>
+<span class="sd">        - :math:`\bm{e}_j` is the canonical basis vector selecting feature :math:`j` within the active set.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        active_set : array-like, shape (k,)</span>
+<span class="sd">            Indices of features in the active set</span>
+<span class="sd">        feature_id : int</span>
+<span class="sd">            Index of the feature to test (within active_set)</span>
+<span class="sd">        Sigmas : list of array-like</span>
+<span class="sd">            List containing covariance matrices for both source and target</span>
+<span class="sd">            domains:</span>
+<span class="sd">            - ``Sigmas[0]``: list of source covariance matrices,</span>
+<span class="sd">            - ``Sigmas[1]``: target domain covariance matrix.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        test_statistic_direction : array-like, shape (K * nS + nT, 1)</span>
+<span class="sd">            The direction vector :math:`\bm{\eta}_j` for the test statistic.</span>
+<span class="sd">        a : array-like, shape (K * nS + nT, 1)</span>
+<span class="sd">            Parametrization intercept for combined data</span>
+<span class="sd">        b : array-like, shape (K * nS + nT, 1)</span>
+<span class="sd">            Parametrization coefficient for combined data</span>
+<span class="sd">        test_statistic : float</span>
+<span class="sd">            Observed value of the test statistic</span>
+<span class="sd">        variance : float</span>
+<span class="sd">            Variance of the test statistic under null hypothesis</span>
+
+<span class="sd">        deviation : float</span>
+<span class="sd">            Standard deviation of the test statistic</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">XS_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">XS_list_node</span><span class="p">()</span>
+        <span class="n">YS_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">YS_list_node</span><span class="p">()</span>
+        <span class="n">X0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X0_node</span><span class="p">()</span>
+        <span class="n">Y0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y0_node</span><span class="p">()</span>
+
+        <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">XS_list</span><span class="p">)</span>
+        <span class="n">nS</span> <span class="o">=</span> <span class="n">XS_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_sources</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="n">nS</span>
+        <span class="n">nT</span> <span class="o">=</span> <span class="n">Y0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">nS</span> <span class="o">*</span> <span class="n">K</span> <span class="o">+</span> <span class="n">nT</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">YS_list</span><span class="p">,</span> <span class="n">Y0</span><span class="p">))</span>
+
+        <span class="n">SigmaS_list</span> <span class="o">=</span> <span class="n">Sigmas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Sigma0</span> <span class="o">=</span> <span class="n">Sigmas</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">Sigma</span> <span class="o">=</span> <span class="n">block_diag</span><span class="p">(</span><span class="o">*</span><span class="n">SigmaS_list</span><span class="p">,</span> <span class="n">Sigma0</span><span class="p">)</span>
+
+        <span class="n">X0_active</span> <span class="o">=</span> <span class="n">X0</span><span class="p">[:,</span> <span class="n">active_set</span><span class="p">]</span>
+        <span class="n">ej</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">active_set</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">ej</span><span class="p">[</span><span class="n">feature_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">X0_active</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X0_active</span><span class="p">)</span>
+        <span class="n">X0_active_inv</span> <span class="o">=</span> <span class="n">X0_active</span> <span class="o">@</span> <span class="n">inv</span>
+
+        <span class="n">test_statistic_direction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_sources</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+                <span class="n">X0_active_inv</span> <span class="o">@</span> <span class="n">ej</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">test_statistic_direction</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Sigma</span> <span class="o">@</span> <span class="n">test_statistic_direction</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sigma</span> <span class="o">@</span> <span class="n">test_statistic_direction</span><span class="p">)</span> <span class="o">/</span> <span class="n">e1</span>
+
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span> <span class="o">@</span> <span class="n">test_statistic_direction</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">e2</span> <span class="o">@</span> <span class="n">Y</span>
+
+        <span class="n">test_statistic</span> <span class="o">=</span> <span class="p">(</span><span class="n">test_statistic_direction</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Y</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">test_statistic_direction</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Sigma</span> <span class="o">@</span> <span class="n">test_statistic_direction</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">deviation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">XS_list_node</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">XS_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">YS_list_node</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">[:</span><span class="n">n_sources</span><span class="p">,</span> <span class="p">:],</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">[:</span><span class="n">n_sources</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X0_node</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Y0_node</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">n_sources</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">[</span><span class="n">n_sources</span><span class="p">:,</span> <span class="p">:])</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">test_statistic_direction</span><span class="p">,</span>
+            <span class="n">a</span><span class="p">,</span>
+            <span class="n">b</span><span class="p">,</span>
+            <span class="n">test_statistic</span><span class="p">,</span>
+            <span class="n">variance</span><span class="p">,</span>
+            <span class="n">deviation</span><span class="p">,</span>
+            <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PythonSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

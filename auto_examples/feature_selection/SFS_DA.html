@@ -51,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../all.html">API and modules</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective inference for Lasso Feature Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
@@ -61,6 +62,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSIOracleTransLasso.html">Selective inference for Oracle TransLasso Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective inference for TransFusion Feature Selection</a></li>
 </ul>
 </li>
 </ul>
@@ -166,8 +169,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [0 1 4]
-P-values:  [0.6693123237997645, 0.6214032858063625, 0.4640816152430277]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [0 1 2]
+P-values:  [0.16069856439007627, 0.8798179774407136, 0.7559300560754078]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

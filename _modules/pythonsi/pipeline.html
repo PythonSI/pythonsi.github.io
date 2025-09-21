@@ -207,7 +207,7 @@
 <span class="sd">            Selective p-value for the data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">test_statistic_direction</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">deviation</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">test_statistic_direction</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">itv</span> <span class="o">=</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">test_statistic</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">output_id</span><span class="p">,</span> <span class="n">covariances</span><span class="p">)</span>
         <span class="p">)</span>
 
@@ -216,8 +216,8 @@
 
         <span class="n">list_intervals</span><span class="p">,</span> <span class="n">list_outputs</span> <span class="o">=</span> <span class="n">line_search</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">output_node</span><span class="p">,</span>
-            <span class="n">z_min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">),</span>
-            <span class="n">z_max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">test_statistic</span><span class="p">),</span>
+            <span class="n">z_min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">itv</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">test_statistic</span><span class="p">),</span>
+            <span class="n">z_max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">itv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">test_statistic</span><span class="p">),</span>
             <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">p_value</span> <span class="o">=</span> <span class="n">compute_p_value</span><span class="p">(</span>

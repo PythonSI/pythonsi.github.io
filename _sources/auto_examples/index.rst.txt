@@ -19,6 +19,45 @@ This is a gallery of all the PSI example files.
 
     </div>
 
+Anomaly Detection
+-----------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation">
+
+.. only:: html
+
+  .. image:: /auto_examples/anomaly_detection/images/thumb/sphx_glr_STAND-DA_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_anomaly_detection_STAND-DA.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/anomaly_detection/STAND-DA
+
 Feature Selection
 ------------------
 
@@ -97,6 +136,40 @@ Feature Selection
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for Oracle TransLasso Feature Selection">
+
+.. only:: html
+
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_PTLSIOracleTransLasso_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_feature_selection_PTLSIOracleTransLasso.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Selective inference for Oracle TransLasso Feature Selection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for TransFusion Feature Selection">
+
+.. only:: html
+
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_PTLSITransFusion_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_feature_selection_PTLSITransFusion.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Selective inference for TransFusion Feature Selection</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -111,6 +184,8 @@ Feature Selection
    /auto_examples/feature_selection/SeqFS
    /auto_examples/feature_selection/SFS_DA
    /auto_examples/feature_selection/SI-SeqFS-DA
+   /auto_examples/feature_selection/PTLSIOracleTransLasso
+   /auto_examples/feature_selection/PTLSITransFusion
 
 
 .. only:: html

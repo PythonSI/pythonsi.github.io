@@ -125,8 +125,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [1 2]
-    P-values:  [0.7656268631922605, 0.7830545059545666]
+    Selected features:  [0]
+    P-values:  [0.022213453668502137]
 
 
 

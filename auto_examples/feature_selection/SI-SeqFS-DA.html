@@ -23,7 +23,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Releases" href="../../releases.html" />
+    <link rel="next" title="Selective inference for Oracle TransLasso Feature Selection" href="PTLSIOracleTransLasso.html" />
     <link rel="prev" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" href="SFS_DA.html" /> 
 </head>
 
@@ -51,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../all.html">API and modules</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective inference for Lasso Feature Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
@@ -61,6 +62,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#run-the-pipeline">Run the pipeline</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSIOracleTransLasso.html">Selective inference for Oracle TransLasso Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective inference for TransFusion Feature Selection</a></li>
 </ul>
 </li>
 </ul>
@@ -166,8 +169,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 4, 0]
-P-values:  [0.5273158386554258, 0.487962261600128, 0.15259584667485132]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [1, 4, 3]
+P-values:  [0.6563797795465607, 0.03502846149340816, 0.8684406866758261]
 </pre></div>
 </div>
 <p>Plot the p-values</p>
@@ -198,7 +201,7 @@ P-values:  [0.5273158386554258, 0.487962261600128, 0.15259584667485132]
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="SFS_DA.html" class="btn btn-neutral float-left" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../releases.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="PTLSIOracleTransLasso.html" class="btn btn-neutral float-right" title="Selective inference for Oracle TransLasso Feature Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

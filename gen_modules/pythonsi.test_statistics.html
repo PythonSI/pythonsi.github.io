@@ -55,13 +55,15 @@
 <li class="toctree-l2"><a class="reference internal" href="pythonsi.domain_adaptation.html">pythonsi.domain_adaptation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pythonsi.test_statistics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pythonsi.test_statistics.AD_DATestStatistic"><code class="docutils literal notranslate"><span class="pre">AD_DATestStatistic</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pythonsi.test_statistics.FSTestStatistic"><code class="docutils literal notranslate"><span class="pre">FSTestStatistic</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pythonsi.test_statistics.SFS_DATestStatistic"><code class="docutils literal notranslate"><span class="pre">SFS_DATestStatistic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythonsi.test_statistics.TLHDRTestStatistic"><code class="docutils literal notranslate"><span class="pre">TLHDRTestStatistic</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../all.html#global-pythonsi-functions-and-classes">Global <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code> functions and classes:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../all.html#module-pythonsi">Global <code class="xref py py-mod docutils literal notranslate"><span class="pre">pythonsi</span></code> functions and classes:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples gallery</a></li>
@@ -102,6 +104,11 @@
 <section id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.AD_DATestStatistic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythonsi.test_statistics.</span></span><span class="sig-name descname"><span class="pre">AD_DATestStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.node.data.Data"><span class="pre">Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.node.data.Data"><span class="pre">Data</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythonsi/test_statistics/ad_after_da.html#AD_DATestStatistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythonsi.test_statistics.AD_DATestStatistic" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="sphx-glr-clear"></div><dl class="py class">
 <dt class="sig sig-object py" id="pythonsi.test_statistics.FSTestStatistic">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythonsi.test_statistics.</span></span><span class="sig-name descname"><span class="pre">FSTestStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythonsi/test_statistics/fs.html#FSTestStatistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythonsi.test_statistics.FSTestStatistic" title="Link to this definition"></a></dt>
 <dd><p>Compute test statistic and other utilities for feature selection inference.</p>
@@ -217,6 +224,95 @@ domain adaptation via optimal transport.</p>
 the inference on the target domain data while using the source domain
 for adaptation. This allows for valid inference on features selected
 after optimal transport domain adaptation.</p>
+</dd></dl>
+
+<div class="sphx-glr-clear"></div><dl class="py class">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.TLHDRTestStatistic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pythonsi.test_statistics.</span></span><span class="sig-name descname"><span class="pre">TLHDRTestStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">XS_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YS_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">floating</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pythonsi/test_statistics/tl_hdr.html#TLHDRTestStatistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pythonsi.test_statistics.TLHDRTestStatistic" title="Link to this definition"></a></dt>
+<dd><p>Test statistic for selection inference in high-dimensional regression
+after transfer learning with multiple source domains.</p>
+<p>This class computes test statistics for testing individual features
+after feature selection via a transfer learning procedure, implementing
+the post-selection inference framework for high-dimensional regression.</p>
+<p>The test statistic is designed for testing:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_j = 0 \quad \text{vs} \quad H_1: \beta_j \neq 0,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_j\)</span> is the coefficient of feature <span class="math notranslate nohighlight">\(j\)</span> in the
+target domain after transfer learning and feature selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>XS_list</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>K</em><em>, </em><em>nS</em><em>, </em><em>p</em><em>)</em>) – <p>A 3D numpy array containing <strong>source domain design matrices</strong>.
+- <code class="docutils literal notranslate"><span class="pre">K</span></code>: number of source domains
+- <code class="docutils literal notranslate"><span class="pre">nS</span></code>: sample size per source domain
+- <code class="docutils literal notranslate"><span class="pre">p</span></code>: number of features (shared across domains)</p>
+<p>The array is structured such that <code class="docutils literal notranslate"><span class="pre">XS_list[k]</span></code> corresponds to
+the design matrix of the <span class="math notranslate nohighlight">\(k\)</span>-th source domain, with shape
+<code class="docutils literal notranslate"><span class="pre">(nS,</span> <span class="pre">p)</span></code>.</p>
+</p></li>
+<li><p><strong>YS_list</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>K * nS</em><em>, </em><em>1</em><em>)</em>) – <p>A 2D numpy array containing the <strong>source domain response vectors</strong>
+stacked vertically across all <code class="docutils literal notranslate"><span class="pre">K</span></code> source domains.
+- The first <code class="docutils literal notranslate"><span class="pre">nS</span></code> rows correspond to the first source domain,</p>
+<blockquote>
+<div><p>the next <code class="docutils literal notranslate"><span class="pre">nS</span></code> to the second, and so on.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>X0</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nT</em><em>, </em><em>p</em><em>)</em>) – Target domain design matrix.
+- <code class="docutils literal notranslate"><span class="pre">nT</span></code>: number of samples in the target domain
+- <code class="docutils literal notranslate"><span class="pre">p</span></code>: number of features (same as in source domains)</p></li>
+<li><p><strong>Y0</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>nT</em><em>, </em><em>1</em><em>)</em>) – Target domain response vector.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.TLHDRTestStatistic.XS_list_node">
+<span class="sig-name descname"><span class="pre">XS_list_node</span></span><a class="headerlink" href="#pythonsi.test_statistics.TLHDRTestStatistic.XS_list_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the collection of source domain design matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.TLHDRTestStatistic.YS_list_node">
+<span class="sig-name descname"><span class="pre">YS_list_node</span></span><a class="headerlink" href="#pythonsi.test_statistics.TLHDRTestStatistic.YS_list_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the stacked source domain response vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.TLHDRTestStatistic.X0_node">
+<span class="sig-name descname"><span class="pre">X0_node</span></span><a class="headerlink" href="#pythonsi.test_statistics.TLHDRTestStatistic.X0_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the target domain design matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pythonsi.test_statistics.TLHDRTestStatistic.Y0_node">
+<span class="sig-name descname"><span class="pre">Y0_node</span></span><a class="headerlink" href="#pythonsi.test_statistics.TLHDRTestStatistic.Y0_node" title="Link to this definition"></a></dt>
+<dd><p>Node containing the target domain response vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../all.html#pythonsi.Data" title="pythonsi.Data">Data</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>The test statistic accounts for the transfer learning step by focusing
+the inference on the target domain while leveraging information from
+multiple source domains. This allows for valid inference on features selected after the transfer
+learning process.</p>
 </dd></dl>
 
 <div class="sphx-glr-clear"></div></section>

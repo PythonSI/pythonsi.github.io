@@ -15,6 +15,14 @@
    -------
 
    
+   .. autoclass:: AD_DATestStatistic
+      :members:
+
+   .. include:: backreferences/pythonsi.test_statistics.AD_DATestStatistic.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
    .. autoclass:: FSTestStatistic
       :members:
 
@@ -27,6 +35,14 @@
       :members:
 
    .. include:: backreferences/pythonsi.test_statistics.SFS_DATestStatistic.examples
+
+   .. raw:: html
+
+	       <div class="sphx-glr-clear"></div>
+   .. autoclass:: TLHDRTestStatistic
+      :members:
+
+   .. include:: backreferences/pythonsi.test_statistics.TLHDRTestStatistic.examples
 
    .. raw:: html
 
