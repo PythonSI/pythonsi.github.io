@@ -20,8 +20,10 @@
 
 Selective inference for Sequential Feature Selection
 ====================================================
+This example demonstrates how to perform selective inference for Sequential Feature Selection using the `pythonsi` library. The method is based on the work by Tibshirani et al. (2016)[2].
+[2] Tibshirani, R. J., Taylor, J., Lockhart, R., & Tibshirani, R. (2016). Exact post-selection inference for sequential regression procedures. Journal of the American Statistical Association, 111(514), 600-620.
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-15
+.. GENERATED FROM PYTHON SOURCE LINES 7-17
 
 .. code-block:: Python
 
@@ -42,12 +44,12 @@ Selective inference for Sequential Feature Selection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-18
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 Define the pipeline
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-33
+.. GENERATED FROM PYTHON SOURCE LINES 20-35
 
 .. code-block:: Python
 
@@ -73,12 +75,12 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Generate data
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-52
+.. GENERATED FROM PYTHON SOURCE LINES 38-54
 
 .. code-block:: Python
 
@@ -105,12 +107,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 Run the pipeline
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-60
+.. GENERATED FROM PYTHON SOURCE LINES 57-62
 
 .. code-block:: Python
 
@@ -127,17 +129,17 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [4, 2]
-    P-values:  [0.38200321805298065, 0.6152481272575108]
+    Selected features:  [3, 4]
+    P-values:  [0.17494844258896025, 0.40523100745256396]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-62
+.. GENERATED FROM PYTHON SOURCE LINES 63-64
 
 Plot the p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-68
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
 
 .. code-block:: Python
 

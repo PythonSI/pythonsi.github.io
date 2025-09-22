@@ -20,10 +20,13 @@
 
 Selective inference for Lasso Feature Selection
 ================================================
+This example shows how to perform selective inference for Lasso feature selection using the `pythonsi` library. The method is based on the work by Duy et al. (2021)[1]. 
+[1] Le Duy, V. N., & Takeuchi, I. (2021, March). Parametric programming approach for more powerful and general lasso selective inference. In International conference on artificial intelligence and statistics (pp. 901-909). PMLR.
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-15
+.. GENERATED FROM PYTHON SOURCE LINES 7-18
 
 .. code-block:: Python
+
 
 
     # Author: Tran Tuan Kiet
@@ -42,12 +45,12 @@ Selective inference for Lasso Feature Selection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-18
+.. GENERATED FROM PYTHON SOURCE LINES 19-21
 
 Define the pipeline
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-33
+.. GENERATED FROM PYTHON SOURCE LINES 21-36
 
 .. code-block:: Python
 
@@ -73,12 +76,12 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 Generate data
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-50
+.. GENERATED FROM PYTHON SOURCE LINES 39-53
 
 .. code-block:: Python
 
@@ -103,12 +106,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 Run the pipeline
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-58
+.. GENERATED FROM PYTHON SOURCE LINES 56-61
 
 .. code-block:: Python
 
@@ -125,17 +128,17 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0]
-    P-values:  [0.022213453668502137]
+    Selected features:  [2 3 4]
+    P-values:  [0.15210666782406781, 0.7928001593659839, 0.5567564061709589]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-60
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 Plot the p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+.. GENERATED FROM PYTHON SOURCE LINES 63-68
 
 .. code-block:: Python
 

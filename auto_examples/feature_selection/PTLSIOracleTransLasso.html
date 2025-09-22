@@ -57,7 +57,13 @@
 <li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">SI for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective inference for Oracle TransLasso Feature Selection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective inference for Oracle TransLasso Feature Selection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-data">Generate data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#define-hyper-parameters">Define hyper-parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-the-pipeline">Run the pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-p-values">Plot p-values</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective inference for TransFusion Feature Selection</a></li>
 </ul>
 </li>
@@ -101,6 +107,9 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="selective-inference-for-oracle-translasso-feature-selection">
 <span id="sphx-glr-auto-examples-feature-selection-ptlsioracletranslasso-py"></span><h1>Selective inference for Oracle TransLasso Feature Selection<a class="headerlink" href="#selective-inference-for-oracle-translasso-feature-selection" title="Link to this heading"></a></h1>
+<p>This example demonstrates how to perform selective inference for the Oracle TransLasso feature selection algorithm, as proposed in [5]. Oracle TransLasso, introduced in [4], is a transfer learning algorithm designed for high-dimensional linear regression. It leverages multiple informative source domains to improve both feature selection and prediction in the target domain. This example builds on Oracle TransLasso by incorporating a post-selection inference framework to provide statistical guarantees for the selected features.
+[4] Li, S., Cai, T. T., &amp; Li, H. (2022). Transfer learning for high-dimensional linear regression: Prediction, estimation and minimax optimality. Journal of the Royal Statistical Society Series B: Statistical Methodology, 84(1), 149-173.
+[5] Tam, N. V. K., My, C. H., &amp; Duy, V. N. L. (2025). Post-Transfer Learning Statistical Inference in High-Dimensional Regression. arXiv preprint arXiv:2504.18212.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Nguyen Vu Khai Tam &amp; Cao Huyen My</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
@@ -111,7 +120,8 @@ to download the full example code.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
-<p>Generate data</p>
+<section id="generate-data">
+<h2>Generate data<a class="headerlink" href="#generate-data" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_coef</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">true_beta</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">num_info_aux</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_uninfo_aux</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
     <span class="n">K</span> <span class="o">=</span> <span class="n">num_info_aux</span> <span class="o">+</span> <span class="n">num_uninfo_aux</span>
     <span class="n">beta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">true_beta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">s</span><span class="p">)])</span>
@@ -162,6 +172,9 @@ to download the full example code.</p>
     <span class="k">return</span> <span class="n">XS_list</span><span class="p">,</span> <span class="n">YS_list</span><span class="p">,</span> <span class="n">X0</span><span class="p">,</span> <span class="n">Y0</span><span class="p">,</span> <span class="n">SigmaS_list</span><span class="p">,</span> <span class="n">Sigma0</span>
 </pre></div>
 </div>
+</section>
+<section id="define-hyper-parameters">
+<h2>Define hyper-parameters<a class="headerlink" href="#define-hyper-parameters" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">s</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">true_beta</span> <span class="o">=</span> <span class="mi">1</span>
@@ -198,6 +211,9 @@ to download the full example code.</p>
 <span class="n">my_pipeline</span> <span class="o">=</span> <span class="n">PTL_SI_OTL</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
+<section id="run-the-pipeline">
+<h2>Run the pipeline<a class="headerlink" href="#run-the-pipeline" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">XI_list</span><span class="p">,</span> <span class="n">YI_list</span><span class="p">,</span> <span class="n">X0</span><span class="p">,</span> <span class="n">Y0</span><span class="p">,</span> <span class="n">SigmaI_list</span><span class="p">,</span> <span class="n">Sigma0</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span>
     <span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">nS</span><span class="p">,</span> <span class="n">nT</span><span class="p">,</span> <span class="n">true_beta</span><span class="p">,</span> <span class="n">num_info_aux</span><span class="p">,</span> <span class="n">num_uninfo_aux</span><span class="p">,</span> <span class="n">gamma</span>
 <span class="p">)</span>
@@ -208,37 +224,38 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected output: [ 0  1  2  3  4  5  6  7  8  9 18 77 78]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected output: [ 0  1  2  3  4  5  6  7  8  9 40 73]
 Testing feature 0
-Feature 0: p-value = 7.927507539307044e-10
+Feature 0: p-value = 3.901291734109691e-09
 Testing feature 1
-Feature 1: p-value = 2.1724511078957676e-10
+Feature 1: p-value = 2.321610681477182e-09
 Testing feature 2
-Feature 2: p-value = 7.743496732715016e-09
+Feature 2: p-value = 5.309463979585871e-11
 Testing feature 3
-Feature 3: p-value = 9.572095338583608e-09
+Feature 3: p-value = 2.3012702854430245e-11
 Testing feature 4
-Feature 4: p-value = 3.2150748729975476e-10
+Feature 4: p-value = 9.836575998178887e-14
 Testing feature 5
-Feature 5: p-value = 3.788525049230884e-12
+Feature 5: p-value = 2.629430007061728e-10
 Testing feature 6
-Feature 6: p-value = 2.6194602043005943e-12
+Feature 6: p-value = 1.7219559111936178e-12
 Testing feature 7
-Feature 7: p-value = 1.620251284406571e-05
+Feature 7: p-value = 0.0002164928578320957
 Testing feature 8
-Feature 8: p-value = 0.028426780025011977
+Feature 8: p-value = 6.784814876059642e-05
 Testing feature 9
-Feature 9: p-value = 9.226272023266091e-05
+Feature 9: p-value = 4.911027140508395e-10
 Testing feature 10
-Feature 10: p-value = 0.1707439012181533
+Feature 10: p-value = 0.6047805986031731
 Testing feature 11
-Feature 11: p-value = 0.6260003107287162
-Testing feature 12
-Feature 12: p-value = 0.7767834189945435
-Selected features:  [ 0  1  2  3  4  5  6  7  8  9 18 77 78]
-P-values:  [7.927507539307044e-10, 2.1724511078957676e-10, 7.743496732715016e-09, 9.572095338583608e-09, 3.2150748729975476e-10, 3.788525049230884e-12, 2.6194602043005943e-12, 1.620251284406571e-05, 0.028426780025011977, 9.226272023266091e-05, 0.1707439012181533, 0.6260003107287162, 0.7767834189945435]
+Feature 11: p-value = 0.8649686917325704
+Selected features:  [ 0  1  2  3  4  5  6  7  8  9 40 73]
+P-values:  [3.901291734109691e-09, 2.321610681477182e-09, 5.309463979585871e-11, 2.3012702854430245e-11, 9.836575998178887e-14, 2.629430007061728e-10, 1.7219559111936178e-12, 0.0002164928578320957, 6.784814876059642e-05, 4.911027140508395e-10, 0.6047805986031731, 0.8649686917325704]
 </pre></div>
 </div>
+</section>
+<section id="plot-p-values">
+<h2>Plot p-values<a class="headerlink" href="#plot-p-values" title="Link to this heading"></a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_values</span><span class="p">)),</span> <span class="n">p_values</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature index&quot;</span><span class="p">)</span>
@@ -258,6 +275,7 @@ P-values:  [7.927507539307044e-10, 2.1724511078957676e-10, 7.743496732715016e-09
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
 </section>
 
 

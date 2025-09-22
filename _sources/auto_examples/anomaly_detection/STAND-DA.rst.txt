@@ -20,8 +20,11 @@
 
 Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
 ====================================================================================================================
+This example shows how to perform selective inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation using the `pythonsi` library. The method is based on the work by Kiet et al. (2025)[7].
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-19
+[7] Kiet, T. T., Loi, N. T., & Duy, V. N. L. (2025). Statistical inference for autoencoder-based anomaly detection after representation learning-based domain adaptation. arXiv preprint arXiv:2508.07049.
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-22
 
 .. code-block:: Python
 
@@ -46,14 +49,15 @@ Statistical Inference for Autoencoder-based Anomaly Detection after Representati
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-22
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
 
 Generate Data
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-56
+.. GENERATED FROM PYTHON SOURCE LINES 25-60
 
 .. code-block:: Python
+
 
 
     def gen_data(mu: float, delta: List[int], n: int, d: int, alpha: float = 0.05):
@@ -82,8 +86,8 @@ Generate Data
 
     ns, nt, d = 150, 25, 32
 
-    xs, _, sigma_s = gen_data(0, [4], ns, d)
-    xt, _, sigma_t = gen_data(2, [4], nt, d)
+    xs, ys, sigma_s = gen_data(0, [4], ns, d)
+    xt, yt, sigma_t = gen_data(2, [4], nt, d)
     plt.scatter(xs[:, 0], xs[:, 1], label="Source data")
     plt.scatter(xt[:, 0], xt[:, 1], label="Target data")
     plt.legend()
@@ -101,12 +105,12 @@ Generate Data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 Load pretrained models
 -------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-71
+.. GENERATED FROM PYTHON SOURCE LINES 63-75
 
 .. code-block:: Python
 
@@ -129,12 +133,12 @@ Load pretrained models
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-74
+.. GENERATED FROM PYTHON SOURCE LINES 76-78
 
 Define the pipeline
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-97
+.. GENERATED FROM PYTHON SOURCE LINES 78-101
 
 .. code-block:: Python
 
@@ -168,12 +172,12 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 102-104
 
 Run the pipeline
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-106
+.. GENERATED FROM PYTHON SOURCE LINES 104-110
 
 .. code-block:: Python
 
@@ -191,17 +195,19 @@ Run the pipeline
 
  .. code-block:: none
 
-    Anomalies set:  []
-    P-values:  []
+    Test statistic: 21.46899481420035
+    Variance: 30.666666666666707
+    Anomalies set:  [np.int64(13)]
+    P-values:  [0.5126927308168528]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-108
+.. GENERATED FROM PYTHON SOURCE LINES 111-112
 
 Plot the p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-113
+.. GENERATED FROM PYTHON SOURCE LINES 112-117
 
 .. code-block:: Python
 

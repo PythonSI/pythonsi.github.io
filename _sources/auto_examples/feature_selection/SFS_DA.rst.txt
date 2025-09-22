@@ -21,7 +21,10 @@
 SI for Feature Selection after Optimal Transport-based Domain Adaptation
 ========================================================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-16
+This example demonstrates how to perform statistical inference for feature selection after applying Optimal Transport-based Domain Adaptation. The implementation is based on the paper by Loi et al. (2025) [3].
+[3] Loi, N. T., Loc, D. T., & Duy, V. N. L. (2025). "Statistical Inference for Feature Selection after Optimal Transport-based Domain Adaptation." In International Conference on Artificial Intelligence and Statistics, pp. 1747-1755. PMLR, 2025.
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-19
 
 .. code-block:: Python
 
@@ -43,12 +46,12 @@ SI for Feature Selection after Optimal Transport-based Domain Adaptation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-19
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
 
 Define the pipeline
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-42
+.. GENERATED FROM PYTHON SOURCE LINES 22-45
 
 .. code-block:: Python
 
@@ -82,12 +85,12 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-45
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 Generate data
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-60
+.. GENERATED FROM PYTHON SOURCE LINES 48-63
 
 .. code-block:: Python
 
@@ -113,12 +116,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-63
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 Run the pipeline
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-71
+.. GENERATED FROM PYTHON SOURCE LINES 66-74
 
 .. code-block:: Python
 
@@ -138,17 +141,17 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0 1 2]
-    P-values:  [0.16069856439007627, 0.8798179774407136, 0.7559300560754078]
+    Selected features:  [0 1 2 3]
+    P-values:  [0.5424014971318711, 0.21260386674254184, 0.15564751961626722, 0.41546429041302224]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-73
+.. GENERATED FROM PYTHON SOURCE LINES 75-76
 
 Plot the p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-78
+.. GENERATED FROM PYTHON SOURCE LINES 76-81
 
 .. code-block:: Python
 

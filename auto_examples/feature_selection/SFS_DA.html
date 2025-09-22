@@ -106,6 +106,8 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="si-for-feature-selection-after-optimal-transport-based-domain-adaptation">
 <span id="sphx-glr-auto-examples-feature-selection-sfs-da-py"></span><h1>SI for Feature Selection after Optimal Transport-based Domain Adaptation<a class="headerlink" href="#si-for-feature-selection-after-optimal-transport-based-domain-adaptation" title="Link to this heading"></a></h1>
+<p>This example demonstrates how to perform statistical inference for feature selection after applying Optimal Transport-based Domain Adaptation. The implementation is based on the paper by Loi et al. (2025) [3].
+[3] Loi, N. T., Loc, D. T., &amp; Duy, V. N. L. (2025). “Statistical Inference for Feature Selection after Optimal Transport-based Domain Adaptation.” In International Conference on Artificial Intelligence and Statistics, pp. 1747-1755. PMLR, 2025.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Tran Tuan Kiet</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
@@ -169,8 +171,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [0 1 2]
-P-values:  [0.16069856439007627, 0.8798179774407136, 0.7559300560754078]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [0 1 2 3]
+P-values:  [0.5424014971318711, 0.21260386674254184, 0.15564751961626722, 0.41546429041302224]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

@@ -1,6 +1,9 @@
 r"""
 Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
 ====================================================================================================================
+This example shows how to perform selective inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation using the `pythonsi` library. The method is based on the work by Kiet et al. (2025)[7].
+
+[7] Kiet, T. T., Loi, N. T., & Duy, V. N. L. (2025). Statistical inference for autoencoder-based anomaly detection after representation learning-based domain adaptation. arXiv preprint arXiv:2508.07049.
 """
 
 # Author: Tran Tuan Kiet
@@ -16,9 +19,10 @@ from models.ae import AutoEncoder
 from typing import List
 import torch
 
-# %% 
+# %%
 # Generate Data
 # -----------------
+
 
 def gen_data(mu: float, delta: List[int], n: int, d: int, alpha: float = 0.05):
     mu = np.full((n, d), mu, dtype=np.float64)
@@ -46,8 +50,8 @@ def gen_data(mu: float, delta: List[int], n: int, d: int, alpha: float = 0.05):
 
 ns, nt, d = 150, 25, 32
 
-xs, _, sigma_s = gen_data(0, [4], ns, d)
-xt, _, sigma_t = gen_data(2, [4], nt, d)
+xs, ys, sigma_s = gen_data(0, [4], ns, d)
+xt, yt, sigma_t = gen_data(2, [4], nt, d)
 plt.scatter(xs[:, 0], xs[:, 1], label="Source data")
 plt.scatter(xt[:, 0], xt[:, 1], label="Target data")
 plt.legend()

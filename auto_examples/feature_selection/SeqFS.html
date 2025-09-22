@@ -106,6 +106,8 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="selective-inference-for-sequential-feature-selection">
 <span id="sphx-glr-auto-examples-feature-selection-seqfs-py"></span><h1>Selective inference for Sequential Feature Selection<a class="headerlink" href="#selective-inference-for-sequential-feature-selection" title="Link to this heading"></a></h1>
+<p>This example demonstrates how to perform selective inference for Sequential Feature Selection using the <cite>pythonsi</cite> library. The method is based on the work by Tibshirani et al. (2016)[2].
+[2] Tibshirani, R. J., Taylor, J., Lockhart, R., &amp; Tibshirani, R. (2016). Exact post-selection inference for sequential regression procedures. Journal of the American Statistical Association, 111(514), 600-620.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Duong Tan Loc</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
@@ -157,8 +159,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [4, 2]
-P-values:  [0.38200321805298065, 0.6152481272575108]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [3, 4]
+P-values:  [0.17494844258896025, 0.40523100745256396]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

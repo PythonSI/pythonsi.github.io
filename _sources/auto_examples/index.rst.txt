@@ -31,7 +31,7 @@ Anomaly Detection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation">
+    <div class="sphx-glr-thumbcontainer" tooltip="[7] Kiet, T. T., Loi, N. T., &amp; Duy, V. N. L. (2025). Statistical inference for autoencoder-based anomaly detection after representation learning-based domain adaptation. arXiv preprint arXiv:2508.07049.">
 
 .. only:: html
 
@@ -104,7 +104,7 @@ Feature Selection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="SI for Feature Selection after Optimal Transport-based Domain Adaptation">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to perform statistical inference for feature selection after applying Optimal Transport-based Domain Adaptation. The implementation is based on the paper by Loi et al. (2025) [3]. [3] Loi, N. T., Loc, D. T., &amp; Duy, V. N. L. (2025). &quot;Statistical Inference for Feature Selection after Optimal Transport-based Domain Adaptation.&quot; In International Conference on Artificial Intelligence and Statistics, pp. 1747-1755. PMLR, 2025.">
 
 .. only:: html
 

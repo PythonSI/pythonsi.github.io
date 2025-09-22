@@ -102,6 +102,8 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="statistical-inference-for-autoencoder-based-anomaly-detection-after-representation-learning-based-domain-adaptation">
 <span id="sphx-glr-auto-examples-anomaly-detection-stand-da-py"></span><h1>Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation<a class="headerlink" href="#statistical-inference-for-autoencoder-based-anomaly-detection-after-representation-learning-based-domain-adaptation" title="Link to this heading"></a></h1>
+<p>This example shows how to perform selective inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation using the <cite>pythonsi</cite> library. The method is based on the work by Kiet et al. (2025)[7].</p>
+<p>[7] Kiet, T. T., Loi, N. T., &amp; Duy, V. N. L. (2025). Statistical inference for autoencoder-based anomaly detection after representation learning-based domain adaptation. arXiv preprint arXiv:2508.07049.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Tran Tuan Kiet</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">Data</span>
@@ -144,8 +146,8 @@ to download the full example code.</p>
 
 <span class="n">ns</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">32</span>
 
-<span class="n">xs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">sigma_s</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">ns</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<span class="n">xt</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">sigma_t</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">nt</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">sigma_s</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">ns</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">sigma_t</span> <span class="o">=</span> <span class="n">gen_data</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">nt</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Source data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xt</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Target data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -201,8 +203,10 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Anomalies set:  []
-P-values:  []
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Test statistic: 21.46899481420035
+Variance: 30.666666666666707
+Anomalies set:  [np.int64(13)]
+P-values:  [0.5126927308168528]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

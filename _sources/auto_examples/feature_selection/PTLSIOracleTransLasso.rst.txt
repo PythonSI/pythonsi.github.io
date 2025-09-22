@@ -19,9 +19,12 @@
 
 
 Selective inference for Oracle TransLasso Feature Selection
-===========================================================
+===============================================================
+This example demonstrates how to perform selective inference for the Oracle TransLasso feature selection algorithm, as proposed in [5]. Oracle TransLasso, introduced in [4], is a transfer learning algorithm designed for high-dimensional linear regression. It leverages multiple informative source domains to improve both feature selection and prediction in the target domain. This example builds on Oracle TransLasso by incorporating a post-selection inference framework to provide statistical guarantees for the selected features.
+[4] Li, S., Cai, T. T., & Li, H. (2022). Transfer learning for high-dimensional linear regression: Prediction, estimation and minimax optimality. Journal of the Royal Statistical Society Series B: Statistical Methodology, 84(1), 149-173.
+[5] Tam, N. V. K., My, C. H., & Duy, V. N. L. (2025). Post-Transfer Learning Statistical Inference in High-Dimensional Regression. arXiv preprint arXiv:2504.18212.
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-16
+.. GENERATED FROM PYTHON SOURCE LINES 8-19
 
 .. code-block:: Python
 
@@ -43,11 +46,12 @@ Selective inference for Oracle TransLasso Feature Selection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-18
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
 
 Generate data
+-----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-68
+.. GENERATED FROM PYTHON SOURCE LINES 22-72
 
 .. code-block:: Python
 
@@ -108,7 +112,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-83
+.. GENERATED FROM PYTHON SOURCE LINES 73-75
+
+Define hyper-parameters
+-----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 75-89
 
 .. code-block:: Python
 
@@ -133,7 +142,7 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-106
+.. GENERATED FROM PYTHON SOURCE LINES 90-112
 
 .. code-block:: Python
 
@@ -166,7 +175,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-116
+.. GENERATED FROM PYTHON SOURCE LINES 113-115
+
+Run the pipeline
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 115-124
 
 .. code-block:: Python
 
@@ -187,40 +201,43 @@ Generate data
 
  .. code-block:: none
 
-    Selected output: [ 0  1  2  3  4  5  6  7  8  9 18 77 78]
+    Selected output: [ 0  1  2  3  4  5  6  7  8  9 40 73]
     Testing feature 0
-    Feature 0: p-value = 7.927507539307044e-10
+    Feature 0: p-value = 3.901291734109691e-09
     Testing feature 1
-    Feature 1: p-value = 2.1724511078957676e-10
+    Feature 1: p-value = 2.321610681477182e-09
     Testing feature 2
-    Feature 2: p-value = 7.743496732715016e-09
+    Feature 2: p-value = 5.309463979585871e-11
     Testing feature 3
-    Feature 3: p-value = 9.572095338583608e-09
+    Feature 3: p-value = 2.3012702854430245e-11
     Testing feature 4
-    Feature 4: p-value = 3.2150748729975476e-10
+    Feature 4: p-value = 9.836575998178887e-14
     Testing feature 5
-    Feature 5: p-value = 3.788525049230884e-12
+    Feature 5: p-value = 2.629430007061728e-10
     Testing feature 6
-    Feature 6: p-value = 2.6194602043005943e-12
+    Feature 6: p-value = 1.7219559111936178e-12
     Testing feature 7
-    Feature 7: p-value = 1.620251284406571e-05
+    Feature 7: p-value = 0.0002164928578320957
     Testing feature 8
-    Feature 8: p-value = 0.028426780025011977
+    Feature 8: p-value = 6.784814876059642e-05
     Testing feature 9
-    Feature 9: p-value = 9.226272023266091e-05
+    Feature 9: p-value = 4.911027140508395e-10
     Testing feature 10
-    Feature 10: p-value = 0.1707439012181533
+    Feature 10: p-value = 0.6047805986031731
     Testing feature 11
-    Feature 11: p-value = 0.6260003107287162
-    Testing feature 12
-    Feature 12: p-value = 0.7767834189945435
-    Selected features:  [ 0  1  2  3  4  5  6  7  8  9 18 77 78]
-    P-values:  [7.927507539307044e-10, 2.1724511078957676e-10, 7.743496732715016e-09, 9.572095338583608e-09, 3.2150748729975476e-10, 3.788525049230884e-12, 2.6194602043005943e-12, 1.620251284406571e-05, 0.028426780025011977, 9.226272023266091e-05, 0.1707439012181533, 0.6260003107287162, 0.7767834189945435]
+    Feature 11: p-value = 0.8649686917325704
+    Selected features:  [ 0  1  2  3  4  5  6  7  8  9 40 73]
+    P-values:  [3.901291734109691e-09, 2.321610681477182e-09, 5.309463979585871e-11, 2.3012702854430245e-11, 9.836575998178887e-14, 2.629430007061728e-10, 1.7219559111936178e-12, 0.0002164928578320957, 6.784814876059642e-05, 4.911027140508395e-10, 0.6047805986031731, 0.8649686917325704]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-122
+.. GENERATED FROM PYTHON SOURCE LINES 125-127
+
+Plot p-values
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 127-132
 
 .. code-block:: Python
 

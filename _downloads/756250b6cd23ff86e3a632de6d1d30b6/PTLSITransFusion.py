@@ -1,7 +1,11 @@
 r"""
 Selective inference for TransFusion Feature Selection
 =====================================================
+TransFusion in [6] is a robust transfer learning method designed to handle covariate shift between source and target domains. This example provides the post-selection inference for the TransFusion feature selection, using framework proposed in [5].
+[5] Tam, N. V. K., My, C. H., & Duy, V. N. L. (2025). Post-Transfer Learning Statistical Inference in High-Dimensional Regression. arXiv preprint arXiv:2504.18212.
+[6] He, Z., Sun, Y., & Li, R. (2024, April). Transfusion: Covariate-shift robust transfer learning for high-dimensional regression. In International Conference on Artificial Intelligence and Statistics (pp. 703-711). PMLR.
 """
+
 
 # Author: Nguyen Vu Khai Tam & Cao Huyen My
 
@@ -15,6 +19,7 @@ import matplotlib.pyplot as plt
 
 # %%
 # Generate data
+# ---------------
 def generate_coef(p, s, true_beta=0.25, num_info_aux=3, num_uninfo_aux=2, gamma=0.01):
     K = num_info_aux + num_uninfo_aux
     beta_0 = np.concatenate([np.full(s, true_beta), np.zeros(p - s)])
@@ -70,7 +75,9 @@ def compute_adaptive_weights(K, nS, nT):
     return [ak] * K
 
 
-# %% Define hyper-parameters
+# %%
+# Define hyper-parameters
+# -----------------------
 p = 100
 s = 5
 true_beta = 1
@@ -86,7 +93,11 @@ lambda_0 = np.sqrt(np.log(p) / N) * 4
 lambda_tilde = np.sqrt(np.log(p) / nT) * 2
 
 
-# %% Define pipeline
+# %%
+# Define pipeline
+# -----------------------
+
+
 def PTL_SI_TL() -> Pipeline:
     XS_list = Data()
     YS_list = Data()
@@ -109,7 +120,9 @@ def PTL_SI_TL() -> Pipeline:
 my_pipeline = PTL_SI_TL()
 
 
-# %% Run the pipeline
+# %%
+# Run the pipeline
+# -----------------
 XS_list, YS_list, X0, Y0, SigmaS_list, Sigma0 = generate_data(
     p, s, nS, nT, true_beta, num_info_aux, num_uninfo_aux, gamma
 )
@@ -120,7 +133,9 @@ print("Selected features: ", selected_features)
 print("P-values: ", p_values)
 
 
-# %% Plot p-values
+# %%
+# Plot p-values
+# -----------------
 plt.figure()
 plt.bar(range(len(p_values)), p_values)
 plt.xlabel("Feature index")

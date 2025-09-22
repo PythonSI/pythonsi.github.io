@@ -106,6 +106,8 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="selective-inference-for-lasso-feature-selection">
 <span id="sphx-glr-auto-examples-feature-selection-lassofs-py"></span><h1>Selective inference for Lasso Feature Selection<a class="headerlink" href="#selective-inference-for-lasso-feature-selection" title="Link to this heading"></a></h1>
+<p>This example shows how to perform selective inference for Lasso feature selection using the <cite>pythonsi</cite> library. The method is based on the work by Duy et al. (2021)[1].
+[1] Le Duy, V. N., &amp; Takeuchi, I. (2021, March). Parametric programming approach for more powerful and general lasso selective inference. In International conference on artificial intelligence and statistics (pp. 901-909). PMLR.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Tran Tuan Kiet</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
@@ -156,8 +158,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [0]
-P-values:  [0.022213453668502137]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2 3 4]
+P-values:  [0.15210666782406781, 0.7928001593659839, 0.5567564061709589]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

@@ -106,6 +106,8 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="si-for-sequential-feature-selection-after-optimal-transport-based-domain-adaptation">
 <span id="sphx-glr-auto-examples-feature-selection-si-seqfs-da-py"></span><h1>SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation<a class="headerlink" href="#si-for-sequential-feature-selection-after-optimal-transport-based-domain-adaptation" title="Link to this heading"></a></h1>
+<p>This example demonstrates how to perform statistical inference for sequential feature selection (SeqFS) after applying Optimal Transport-based Domain Adaptation. The implementation follows the methodology proposed by Loc et al. (2025) [4].
+[4] Loc, D. T., Loi, N. T., &amp; Duy, V. N. L. (2025). Statistical Inference for Sequential Feature Selection after Domain Adaptation. arXiv preprint arXiv:2501.09933.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Duong Tan Loc</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
@@ -169,8 +171,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [1, 4, 3]
-P-values:  [0.6563797795465607, 0.03502846149340816, 0.8684406866758261]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [3, 4, 1]
+P-values:  [0.38409760959246575, 0.5261348213591066, 0.8038003268473604]
 </pre></div>
 </div>
 <p>Plot the p-values</p>

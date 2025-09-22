@@ -20,10 +20,14 @@
 
 Selective inference for TransFusion Feature Selection
 =====================================================
+TransFusion in [6] is a robust transfer learning method designed to handle covariate shift between source and target domains. This example provides the post-selection inference for the TransFusion feature selection, using framework proposed in [5].
+[5] Tam, N. V. K., My, C. H., & Duy, V. N. L. (2025). Post-Transfer Learning Statistical Inference in High-Dimensional Regression. arXiv preprint arXiv:2504.18212.
+[6] He, Z., Sun, Y., & Li, R. (2024, April). Transfusion: Covariate-shift robust transfer learning for high-dimensional regression. In International Conference on Artificial Intelligence and Statistics (pp. 703-711). PMLR.
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-16
+.. GENERATED FROM PYTHON SOURCE LINES 8-20
 
 .. code-block:: Python
+
 
 
     # Author: Nguyen Vu Khai Tam & Cao Huyen My
@@ -43,11 +47,12 @@ Selective inference for TransFusion Feature Selection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-18
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
 
 Generate data
+---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-73
+.. GENERATED FROM PYTHON SOURCE LINES 23-78
 
 .. code-block:: Python
 
@@ -113,7 +118,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-89
+.. GENERATED FROM PYTHON SOURCE LINES 79-81
+
+Define hyper-parameters
+-----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 81-96
 
 .. code-block:: Python
 
@@ -139,9 +149,16 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-112
+.. GENERATED FROM PYTHON SOURCE LINES 97-99
+
+Define pipeline
+-----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 99-123
 
 .. code-block:: Python
+
+
 
     def PTL_SI_TL() -> Pipeline:
         XS_list = Data()
@@ -172,7 +189,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-123
+.. GENERATED FROM PYTHON SOURCE LINES 124-126
+
+Run the pipeline
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 126-136
 
 .. code-block:: Python
 
@@ -194,34 +216,47 @@ Generate data
 
  .. code-block:: none
 
-    Selected output: [ 0  1  2  3  4  9 25 26 39 94]
+    Selected output: [ 0  1  2  3  4 12 14 21 22 23 27 38 43 55]
     Testing feature 0
-    Feature 0: p-value = 0.0
+    Feature 0: p-value = 0.0017418800539716894
     Testing feature 1
-    Feature 1: p-value = 2.0203460144863072e-06
+    Feature 1: p-value = 0.01893713251625795
     Testing feature 2
-    Feature 2: p-value = 8.410490814902971e-08
+    Feature 2: p-value = 3.1372704434318166e-10
     Testing feature 3
-    Feature 3: p-value = 8.166800569142652e-13
+    Feature 3: p-value = 0.0988403336500121
     Testing feature 4
-    Feature 4: p-value = 1.6692671289675332e-07
+    Feature 4: p-value = 0.14624944764658854
     Testing feature 5
-    Feature 5: p-value = 0.9643427761196788
+    Feature 5: p-value = 0.18912361352651288
     Testing feature 6
-    Feature 6: p-value = 0.5833179847021623
+    Feature 6: p-value = 0.8836702327309743
     Testing feature 7
-    Feature 7: p-value = 0.34098893667749164
+    Feature 7: p-value = 0.04802244992814873
     Testing feature 8
-    Feature 8: p-value = 0.939505432070461
+    Feature 8: p-value = 0.6017183926169747
     Testing feature 9
-    Feature 9: p-value = 0.9654324823921544
-    Selected features:  [ 0  1  2  3  4  9 25 26 39 94]
-    P-values:  [0.0, 2.0203460144863072e-06, 8.410490814902971e-08, 8.166800569142652e-13, 1.6692671289675332e-07, 0.9643427761196788, 0.5833179847021623, 0.34098893667749164, 0.939505432070461, 0.9654324823921544]
+    Feature 9: p-value = 0.14585800418510592
+    Testing feature 10
+    Feature 10: p-value = 0.016176601474066885
+    Testing feature 11
+    Feature 11: p-value = 0.17624726690576398
+    Testing feature 12
+    Feature 12: p-value = 0.23644058502301757
+    Testing feature 13
+    Feature 13: p-value = 0.05226088699866338
+    Selected features:  [ 0  1  2  3  4 12 14 21 22 23 27 38 43 55]
+    P-values:  [0.0017418800539716894, 0.01893713251625795, 3.1372704434318166e-10, 0.0988403336500121, 0.14624944764658854, 0.18912361352651288, 0.8836702327309743, 0.04802244992814873, 0.6017183926169747, 0.14585800418510592, 0.016176601474066885, 0.17624726690576398, 0.23644058502301757, 0.05226088699866338]
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-129
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
+
+Plot p-values
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 139-144
 
 .. code-block:: Python
 
