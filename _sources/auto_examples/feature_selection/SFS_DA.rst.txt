@@ -18,8 +18,8 @@
 .. _sphx_glr_auto_examples_feature_selection_SFS_DA.py:
 
 
-SI for Feature Selection after Optimal Transport-based Domain Adaptation
-========================================================================
+Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation
+==========================================================================================
 
 This example demonstrates how to perform statistical inference for feature selection after applying Optimal Transport-based Domain Adaptation. The implementation is based on the paper by Loi et al. (2025) [3].
 [3] Loi, N. T., Loc, D. T., & Duy, V. N. L. (2025). "Statistical Inference for Feature Selection after Optimal Transport-based Domain Adaptation." In International Conference on Artificial Intelligence and Statistics, pp. 1747-1755. PMLR, 2025.
@@ -141,8 +141,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [0 1 2 3]
-    P-values:  [0.5424014971318711, 0.21260386674254184, 0.15564751961626722, 0.41546429041302224]
+    Selected features:  [0 1 2]
+    P-values:  [0.10472562707986799, 0.7031766759781761, 0.6092655557990809]
 
 
 

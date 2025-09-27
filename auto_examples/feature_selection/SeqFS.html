@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selective inference for Sequential Feature Selection &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
+  <title>Selective Inference for Sequential Feature Selection &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
@@ -23,8 +23,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" href="SFS_DA.html" />
-    <link rel="prev" title="Selective inference for Lasso Feature Selection" href="LassoFS.html" /> 
+    <link rel="next" title="Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation" href="SFS_DA.html" />
+    <link rel="prev" title="Selective Inference for Lasso Feature Selection" href="LassoFS.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,17 +53,17 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective inference for Lasso Feature Selection</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective inference for Sequential Feature Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective Inference for Lasso Feature Selection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective Inference for Sequential Feature Selection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#define-the-pipeline">Define the pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-the-pipeline">Run the pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">SI for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PTLSIOracleTransLasso.html">Selective inference for Oracle TransLasso Feature Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective inference for TransFusion Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSIOracleTransLasso.html">Selective Inference for Oracle TransLasso Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective Inference for TransFusion Feature Selection</a></li>
 </ul>
 </li>
 </ul>
@@ -89,7 +89,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Examples gallery</a></li>
-      <li class="breadcrumb-item active">Selective inference for Sequential Feature Selection</li>
+      <li class="breadcrumb-item active">Selective Inference for Sequential Feature Selection</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/auto_examples/feature_selection/SeqFS.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,7 +105,7 @@
 to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="selective-inference-for-sequential-feature-selection">
-<span id="sphx-glr-auto-examples-feature-selection-seqfs-py"></span><h1>Selective inference for Sequential Feature Selection<a class="headerlink" href="#selective-inference-for-sequential-feature-selection" title="Link to this heading"></a></h1>
+<span id="sphx-glr-auto-examples-feature-selection-seqfs-py"></span><h1>Selective Inference for Sequential Feature Selection<a class="headerlink" href="#selective-inference-for-sequential-feature-selection" title="Link to this heading"></a></h1>
 <p>This example demonstrates how to perform selective inference for Sequential Feature Selection using the <cite>pythonsi</cite> library. The method is based on the work by Tibshirani et al. (2016)[2].
 [2] Tibshirani, R. J., Taylor, J., Lockhart, R., &amp; Tibshirani, R. (2016). Exact post-selection inference for sequential regression procedures. Journal of the American Statistical Association, 111(514), 600-620.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Duong Tan Loc</span>
@@ -159,8 +159,8 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [3, 4]
-P-values:  [0.17494844258896025, 0.40523100745256396]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features:  [2, 4]
+P-values:  [0.9315545764571751, 0.1515145418449637]
 </pre></div>
 </div>
 <p>Plot the p-values</p>
@@ -191,8 +191,8 @@ P-values:  [0.17494844258896025, 0.40523100745256396]
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="LassoFS.html" class="btn btn-neutral float-left" title="Selective inference for Lasso Feature Selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SFS_DA.html" class="btn btn-neutral float-right" title="SI for Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="LassoFS.html" class="btn btn-neutral float-left" title="Selective Inference for Lasso Feature Selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SFS_DA.html" class="btn btn-neutral float-right" title="Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

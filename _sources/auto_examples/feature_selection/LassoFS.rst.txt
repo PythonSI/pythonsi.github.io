@@ -18,9 +18,9 @@
 .. _sphx_glr_auto_examples_feature_selection_LassoFS.py:
 
 
-Selective inference for Lasso Feature Selection
+Selective Inference for Lasso Feature Selection
 ================================================
-This example shows how to perform selective inference for Lasso feature selection using the `pythonsi` library. The method is based on the work by Duy et al. (2021)[1]. 
+This example shows how to perform selective inference for Lasso feature selection using the `pythonsi` library. The method is based on the work by Duy et al. (2021)[1].
 [1] Le Duy, V. N., & Takeuchi, I. (2021, March). Parametric programming approach for more powerful and general lasso selective inference. In International conference on artificial intelligence and statistics (pp. 901-909). PMLR.
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-18
@@ -128,8 +128,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [2 3 4]
-    P-values:  [0.15210666782406781, 0.7928001593659839, 0.5567564061709589]
+    Selected features:  [0 1 2]
+    P-values:  [0.6143625798813042, 0.06729176111981018, 0.7598409332636703]
 
 
 

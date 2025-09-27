@@ -42,7 +42,7 @@ Anomaly Detection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation</div>
     </div>
 
 
@@ -70,7 +70,7 @@ Feature Selection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for Lasso Feature Selection">
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective Inference for Lasso Feature Selection">
 
 .. only:: html
 
@@ -81,13 +81,13 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Selective inference for Lasso Feature Selection</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Lasso Feature Selection</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for Sequential Feature Selection">
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective Inference for Sequential Feature Selection">
 
 .. only:: html
 
@@ -98,7 +98,7 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Selective inference for Sequential Feature Selection</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Sequential Feature Selection</div>
     </div>
 
 
@@ -115,13 +115,13 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">SI for Feature Selection after Optimal Transport-based Domain Adaptation</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation">
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation">
 
 .. only:: html
 
@@ -132,13 +132,13 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for Oracle TransLasso Feature Selection">
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective Inference for Oracle TransLasso Feature Selection">
 
 .. only:: html
 
@@ -149,13 +149,13 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Selective inference for Oracle TransLasso Feature Selection</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for Oracle TransLasso Feature Selection</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Selective inference for TransFusion Feature Selection">
+    <div class="sphx-glr-thumbcontainer" tooltip="Selective Inference for TransFusion Feature Selection">
 
 .. only:: html
 
@@ -166,7 +166,7 @@ Feature Selection
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Selective inference for TransFusion Feature Selection</div>
+      <div class="sphx-glr-thumbnail-title">Selective Inference for TransFusion Feature Selection</div>
     </div>
 
 

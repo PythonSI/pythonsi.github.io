@@ -18,7 +18,7 @@
 .. _sphx_glr_auto_examples_anomaly_detection_STAND-DA.py:
 
 
-Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
+Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
 ====================================================================================================================
 This example shows how to perform selective inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation using the `pythonsi` library. The method is based on the work by Kiet et al. (2025)[7].
 
@@ -195,10 +195,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Test statistic: 21.46899481420035
-    Variance: 30.666666666666707
-    Anomalies set:  [np.int64(13)]
-    P-values:  [0.5126927308168528]
+    Anomalies set:  [np.int64(10)]
+    P-values:  [0.9079999670377645]
 
 
 

@@ -18,7 +18,7 @@
 .. _sphx_glr_auto_examples_feature_selection_SeqFS.py:
 
 
-Selective inference for Sequential Feature Selection
+Selective Inference for Sequential Feature Selection
 ====================================================
 This example demonstrates how to perform selective inference for Sequential Feature Selection using the `pythonsi` library. The method is based on the work by Tibshirani et al. (2016)[2].
 [2] Tibshirani, R. J., Taylor, J., Lockhart, R., & Tibshirani, R. (2016). Exact post-selection inference for sequential regression procedures. Journal of the American Statistical Association, 111(514), 600-620.
@@ -129,8 +129,8 @@ Run the pipeline
 
  .. code-block:: none
 
-    Selected features:  [3, 4]
-    P-values:  [0.17494844258896025, 0.40523100745256396]
+    Selected features:  [2, 4]
+    P-values:  [0.9315545764571751, 0.1515145418449637]
 
 
 

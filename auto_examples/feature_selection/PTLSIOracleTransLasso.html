@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selective inference for Oracle TransLasso Feature Selection &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
+  <title>Selective Inference for Oracle TransLasso Feature Selection &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
@@ -23,8 +23,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Selective inference for TransFusion Feature Selection" href="PTLSITransFusion.html" />
-    <link rel="prev" title="SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation" href="SI-SeqFS-DA.html" /> 
+    <link rel="next" title="Selective Inference for TransFusion Feature Selection" href="PTLSITransFusion.html" />
+    <link rel="prev" title="Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation" href="SI-SeqFS-DA.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,18 +53,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective inference for Lasso Feature Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective inference for Sequential Feature Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">SI for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective inference for Oracle TransLasso Feature Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LassoFS.html">Selective Inference for Lasso Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SeqFS.html">Selective Inference for Sequential Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SFS_DA.html">Selective Inference for Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SI-SeqFS-DA.html">Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Selective Inference for Oracle TransLasso Feature Selection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#define-hyper-parameters">Define hyper-parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-the-pipeline">Run the pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#plot-p-values">Plot p-values</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective inference for TransFusion Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTLSITransFusion.html">Selective Inference for TransFusion Feature Selection</a></li>
 </ul>
 </li>
 </ul>
@@ -90,7 +90,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Examples gallery</a></li>
-      <li class="breadcrumb-item active">Selective inference for Oracle TransLasso Feature Selection</li>
+      <li class="breadcrumb-item active">Selective Inference for Oracle TransLasso Feature Selection</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/auto_examples/feature_selection/PTLSIOracleTransLasso.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,7 +106,7 @@
 to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="selective-inference-for-oracle-translasso-feature-selection">
-<span id="sphx-glr-auto-examples-feature-selection-ptlsioracletranslasso-py"></span><h1>Selective inference for Oracle TransLasso Feature Selection<a class="headerlink" href="#selective-inference-for-oracle-translasso-feature-selection" title="Link to this heading"></a></h1>
+<span id="sphx-glr-auto-examples-feature-selection-ptlsioracletranslasso-py"></span><h1>Selective Inference for Oracle TransLasso Feature Selection<a class="headerlink" href="#selective-inference-for-oracle-translasso-feature-selection" title="Link to this heading"></a></h1>
 <p>This example demonstrates how to perform selective inference for the Oracle TransLasso feature selection algorithm, as proposed in [5]. Oracle TransLasso, introduced in [4], is a transfer learning algorithm designed for high-dimensional linear regression. It leverages multiple informative source domains to improve both feature selection and prediction in the target domain. This example builds on Oracle TransLasso by incorporating a post-selection inference framework to provide statistical guarantees for the selected features.
 [4] Li, S., Cai, T. T., &amp; Li, H. (2022). Transfer learning for high-dimensional linear regression: Prediction, estimation and minimax optimality. Journal of the Royal Statistical Society Series B: Statistical Methodology, 84(1), 149-173.
 [5] Tam, N. V. K., My, C. H., &amp; Duy, V. N. L. (2025). Post-Transfer Learning Statistical Inference in High-Dimensional Regression. arXiv preprint arXiv:2504.18212.</p>
@@ -224,33 +224,35 @@ to download the full example code.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-values: &quot;</span><span class="p">,</span> <span class="n">p_values</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected output: [ 0  1  2  3  4  5  6  7  8  9 40 73]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected output: [ 0  1  2  3  4  5  6  7  8  9 24 51 68]
 Testing feature 0
-Feature 0: p-value = 3.901291734109691e-09
+Feature 0: p-value = 0.06156721386901065
 Testing feature 1
-Feature 1: p-value = 2.321610681477182e-09
+Feature 1: p-value = 0.059510603346194735
 Testing feature 2
-Feature 2: p-value = 5.309463979585871e-11
+Feature 2: p-value = 0.6040069556084784
 Testing feature 3
-Feature 3: p-value = 2.3012702854430245e-11
+Feature 3: p-value = 0.6036192353528897
 Testing feature 4
-Feature 4: p-value = 9.836575998178887e-14
+Feature 4: p-value = 0.6760112067524044
 Testing feature 5
-Feature 5: p-value = 2.629430007061728e-10
+Feature 5: p-value = 1.1554683876369154e-09
 Testing feature 6
-Feature 6: p-value = 1.7219559111936178e-12
+Feature 6: p-value = 9.982459303614633e-12
 Testing feature 7
-Feature 7: p-value = 0.0002164928578320957
+Feature 7: p-value = 0.5150725122692119
 Testing feature 8
-Feature 8: p-value = 6.784814876059642e-05
+Feature 8: p-value = 0.0048943785444670596
 Testing feature 9
-Feature 9: p-value = 4.911027140508395e-10
+Feature 9: p-value = 3.875743503911622e-09
 Testing feature 10
-Feature 10: p-value = 0.6047805986031731
+Feature 10: p-value = 0.7404744302727737
 Testing feature 11
-Feature 11: p-value = 0.8649686917325704
-Selected features:  [ 0  1  2  3  4  5  6  7  8  9 40 73]
-P-values:  [3.901291734109691e-09, 2.321610681477182e-09, 5.309463979585871e-11, 2.3012702854430245e-11, 9.836575998178887e-14, 2.629430007061728e-10, 1.7219559111936178e-12, 0.0002164928578320957, 6.784814876059642e-05, 4.911027140508395e-10, 0.6047805986031731, 0.8649686917325704]
+Feature 11: p-value = 0.37426549438743784
+Testing feature 12
+Feature 12: p-value = 0.9468878487070221
+Selected features:  [ 0  1  2  3  4  5  6  7  8  9 24 51 68]
+P-values:  [0.06156721386901065, 0.059510603346194735, 0.6040069556084784, 0.6036192353528897, 0.6760112067524044, 1.1554683876369154e-09, 9.982459303614633e-12, 0.5150725122692119, 0.0048943785444670596, 3.875743503911622e-09, 0.7404744302727737, 0.37426549438743784, 0.9468878487070221]
 </pre></div>
 </div>
 </section>
@@ -282,8 +284,8 @@ P-values:  [3.901291734109691e-09, 2.321610681477182e-09, 5.309463979585871e-11,
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="SI-SeqFS-DA.html" class="btn btn-neutral float-left" title="SI for Sequential Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="PTLSITransFusion.html" class="btn btn-neutral float-right" title="Selective inference for TransFusion Feature Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="SI-SeqFS-DA.html" class="btn btn-neutral float-left" title="Selective Inference for Sequential Feature Selection after Optimal Transport-based Domain Adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PTLSITransFusion.html" class="btn btn-neutral float-right" title="Selective Inference for TransFusion Feature Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

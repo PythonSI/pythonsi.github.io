@@ -1,5 +1,5 @@
 r"""
-Statistical Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
+Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation
 ====================================================================================================================
 This example shows how to perform selective inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation using the `pythonsi` library. The method is based on the work by Kiet et al. (2025)[7].
 
