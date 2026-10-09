@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post-Anomaly Detection Inference for Deep SVDD (Image Data) &mdash; PythonSI: Python Selective Inference First pre-release documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d2e176e1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Selective Inference for Lasso Feature Selection" href="../feature_selection/LassoFS.html" />
+    <link rel="prev" title="Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation" href="STAND-DA.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PythonSI: Python Selective Inference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PythonSI: Python Selective Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../all.html">API and modules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples gallery</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#anomaly-detection">Anomaly Detection</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="PADI_dnn.html">Post-Anomaly Detection Inference for Deep SVDD (Tabular Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="STAND-DA.html">Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Post-Anomaly Detection Inference for Deep SVDD (Image Data)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-trained-model">Load Trained Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-test-reference-data">Generate Test &amp; Reference Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-anomaly">Check Anomaly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-pipeline-compute-selective-p-value">Build Pipeline &amp; Compute Selective p-value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-the-p-values">Plot the p-values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#feature-selection">Feature Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to PythonSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_of_conduct.html">Code of conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PythonSI: Python Selective Inference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Examples gallery</a></li>
+      <li class="breadcrumb-item active">Post-Anomaly Detection Inference for Deep SVDD (Image Data)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/anomaly_detection/PADI_cnn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-anomaly-detection-padi-cnn-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="post-anomaly-detection-inference-for-deep-svdd-image-data">
+<span id="sphx-glr-auto-examples-anomaly-detection-padi-cnn-py"></span><h1>Post-Anomaly Detection Inference for Deep SVDD (Image Data)<a class="headerlink" href="#post-anomaly-detection-inference-for-deep-svdd-image-data" title="Link to this heading"></a></h1>
+<p>This example shows how to perform selective inference for Deep Support Vector Data Description (Deep SVDD) on image patches using a Convolutional Neural Network (CNN) encoder and the <cite>pythonsi</cite> library. The method computes statistically valid p-values to control the False Positive Rate (FPR) in a post-hoc manner. The implementation is based on the work by Thanh et al. (2026) [1].</p>
+<p>[1] Thanh, C. L. C., Vinh, D. Q., &amp; Duy, V. N. L. (2026). Post-Anomaly Detection Inference for Deep SVDD. arXiv preprint arXiv:2609.37935.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Add pythonsi to module search path</span><span class="w">
+</span><span class="c1"># REPO = Path(__file__).resolve().parent</span><span class="w">
+</span><span class="c1"># while REPO.name and not (REPO / &quot;pythonsi&quot;).exists():</span><span class="w">
+</span><span class="c1">#     REPO = REPO.parent</span><span class="w">
+</span><span class="c1"># sys.path.insert(0, str(REPO))</span><span class="w">
+</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
+</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">Data</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class reference internal" href="../../all.html#pythonsi.Pipeline" title="pythonsi.Pipeline"><span class="n">Pipeline</span></a><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="nn">.</span><span class="nn">anomaly_detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepSVDDAD</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pythonsi</span><span class="nn">.</span><span class="nn">test_statistics</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-pythonsi-test_statistics sphx-glr-backref-type-py-class reference internal" href="../../gen_modules/pythonsi.test_statistics.html#pythonsi.test_statistics.DeepSVDDTestStatistic" title="pythonsi.test_statistics.DeepSVDDTestStatistic"><span class="n">DeepSVDDTestStatistic</span></a><span class="w">
+</span><span class="w">
+</span><span class="c1"># Add cnn directory to path to import network</span><span class="w">
+</span><span class="c1"># sys.path.insert(0, str(Path(__file__).resolve().parent / &quot;deepsvdd&quot; / &quot;cnn&quot;))</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">models</span><span class="nn">.</span><span class="nn">deepsvdd</span><span class="nn">.</span><span class="nn">cnn</span><span class="nn">.</span><span class="nn">network</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchNetwork</span><span class="w">
+</span></pre></div></div>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">SEED</span> <span class="o">=</span> <span class="mi">0</span><span class="w">
+</span><span class="n">PATCH_SZ</span> <span class="o">=</span> <span class="mi">15</span><span class="w">
+</span><span class="n">IMG_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span><span class="w">
+</span><span class="n">ALPHA</span> <span class="o">=</span> <span class="mf">0.05</span><span class="w">
+</span><span class="n">N_REFS</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># number of reference (normal) patches</span><span class="w">
+</span><span class="w">
+</span><span class="n">PIXEL_VAR</span> <span class="o">=</span> <span class="mf">1.0</span><span class="w">
+</span><span class="w">
+</span><span class="n">DEVICE</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s2">cuda</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">(</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;</span><span class="s2">cpu</span><span class="s2">&quot;</span><span class="w">
+</span><span class="w">
+</span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span><span class="w">
+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+</section>
+<section id="load-trained-model">
+<h2>Load Trained Model<a class="headerlink" href="#load-trained-model" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="c1"># script_dir = Path(__file__).resolve().parent</span><span class="w">
+</span><span class="n">ckpt_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s2">./models/deepsvdd/cnn/weights/patch_network.pth</span><span class="s2">&quot;</span><span class="w">
+</span><span class="n">ckpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ckpt_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="w">
+</span><span class="n">cfg</span> <span class="o">=</span> <span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">config</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">PatchNetwork</span><span class="p">(</span><span class="w">
+</span>    <span class="n">in_channels</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">in_channels</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span>    <span class="n">img_size</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">img_size</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span>    <span class="n">repdim</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">repdim</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span>    <span class="n">channels</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">channels</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span><span class="w">
+</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">model_state_dict</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">)</span><span class="w">
+</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Force model to float64 for precise selective inference calculation</span><span class="w">
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="n">center_c</span> <span class="o">=</span> <span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">center_c</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="w">
+</span><span class="n">R_squared</span> <span class="o">=</span> <span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">R_squared</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span>  <span class="c1"># Shrink radius by 20% to easily trigger anomaly</span><span class="w">
+</span></pre></div></div>
+</section>
+<section id="generate-test-reference-data">
+<h2>Generate Test &amp; Reference Data<a class="headerlink" href="#generate-test-reference-data" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">def</span><span class="w"> </span><span class="nf">generate_normal_images</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img_size</span><span class="w">
+</span>    <span class="n">imgs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">PIXEL_VAR</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">imgs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">generate_anomaly_images</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img_size</span><span class="w">
+</span>    <span class="n">imgs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="w">
+</span>        <span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">PIXEL_VAR</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span><span class="w">
+</span>    <span class="p">)</span><span class="w">
+</span>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">imgs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">extract_patches</span><span class="p">(</span><span class="n">img_tensor</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <span class="k">if</span> <span class="n">img_tensor</span><span class="o">.</span><span class="n">dim</span><span class="p">(</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span><span class="w">
+</span>        <span class="n">img_tensor</span> <span class="o">=</span> <span class="n">img_tensor</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">
+</span>    <span class="n">patches</span> <span class="o">=</span> <span class="n">img_tensor</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">)</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">)</span><span class="w">
+</span>    <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n_h</span><span class="p">,</span> <span class="n">n_w</span><span class="p">,</span> <span class="n">pH</span><span class="p">,</span> <span class="n">pW</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">shape</span><span class="w">
+</span>    <span class="k">return</span> <span class="n">patches</span><span class="o">.</span><span class="n">contiguous</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="n">n_h</span> <span class="o">*</span> <span class="n">n_w</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">pH</span><span class="p">,</span> <span class="n">pW</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Reference patches (from normal images)</span><span class="w">
+</span><span class="n">ref_images</span> <span class="o">=</span> <span class="n">generate_normal_images</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">)</span><span class="w">
+</span><span class="n">ref_patches</span> <span class="o">=</span> <span class="n">extract_patches</span><span class="p">(</span><span class="n">ref_images</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">)</span><span class="w">
+</span><span class="n">ref_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ref_patches</span><span class="p">)</span><span class="p">,</span> <span class="n">N_REFS</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="w">
+</span><span class="n">ref_patches</span> <span class="o">=</span> <span class="n">ref_patches</span><span class="p">[</span><span class="n">ref_idx</span><span class="p">]</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Reference patches: </span><span class="si">{</span><span class="n">ref_patches</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Test patch (anomalous)</span><span class="w">
+</span><span class="n">test_img</span> <span class="o">=</span> <span class="n">generate_anomaly_images</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="w">
+</span><span class="n">test_patches</span> <span class="o">=</span> <span class="n">extract_patches</span><span class="p">(</span><span class="n">test_img</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">)</span><span class="w">
+</span><span class="n">test_patch</span> <span class="o">=</span> <span class="n">test_patches</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Test patch: </span><span class="si">{</span><span class="n">test_patch</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="n">d</span> <span class="o">=</span> <span class="n">PATCH_SZ</span> <span class="o">*</span> <span class="n">PATCH_SZ</span><span class="w">
+</span><span class="n">img_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">,</span> <span class="n">PATCH_SZ</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Reference patches: torch.Size([50, 1, 15, 15])
+Test patch: torch.Size([1, 1, 15, 15])
+</pre></div>
+</div>
+</section>
+<section id="check-anomaly">
+<h2>Check Anomaly<a class="headerlink" href="#check-anomaly" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">c_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">center_c</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="w">
+</span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">(</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <span class="n">feat</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">test_patch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>    <span class="n">score</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="p">(</span><span class="n">feat</span> <span class="o">-</span> <span class="n">c_tensor</span><span class="p">)</span> <span class="o">*</span><span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Score:  </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.10f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">R²:     </span><span class="si">{</span><span class="n">R_squared</span><span class="si">:</span><span class="s2">.10f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Anomaly detected: </span><span class="si">{</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">R_squared</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span><span class="o">=</span> <span class="n">R_squared</span><span class="p">:</span><span class="w">
+</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠️  Test patch NOT detected as anomaly — try increasing delta.</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Score:  0.0081811020
+R²:     0.0041076397
+Anomaly detected: True
+</pre></div>
+</div>
+</section>
+<section id="build-pipeline-compute-selective-p-value">
+<h2>Build Pipeline &amp; Compute Selective p-value<a class="headerlink" href="#build-pipeline-compute-selective-p-value" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="c1"># Flatten patches for Pipeline (d-dimensional vectors)</span><span class="w">
+</span><span class="n">X_test_np</span> <span class="o">=</span> <span class="n">test_patch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="w">
+</span><span class="n">X_refs_np</span> <span class="o">=</span> <span class="n">ref_patches</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N_REFS</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Covariance matrix</span><span class="w">
+</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">PIXEL_VAR</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">test_node</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">Data</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">refs_node</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">Data</span></a><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="n">detector</span> <span class="o">=</span> <span class="n">DeepSVDDAD</span><span class="p">(</span><span class="w">
+</span>    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span><span class="w">
+</span>    <span class="n">R_squared</span><span class="o">=</span><span class="n">R_squared</span><span class="p">,</span><span class="w">
+</span>    <span class="n">center</span><span class="o">=</span><span class="n">center_c</span><span class="p">,</span><span class="w">
+</span>    <span class="n">img_shape</span><span class="o">=</span><span class="n">img_shape</span><span class="p">,</span><span class="w">
+</span>    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">cpu</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># SI inference runs on CPU</span><span class="w">
+</span>    <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">cnn</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">anomaly_node</span></a> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">test_node</span></a><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Pipeline" title="pythonsi.Pipeline"><span class="n">pipeline</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class reference internal" href="../../all.html#pythonsi.Pipeline" title="pythonsi.Pipeline"><span class="n">Pipeline</span></a><span class="p">(</span><span class="w">
+</span>    <span class="n">inputs</span><span class="o">=</span><span class="p">(</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">test_node</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">refs_node</span></a><span class="p">)</span><span class="p">,</span><span class="w">
+</span>    <span class="n">output</span><span class="o">=</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">anomaly_node</span></a><span class="p">,</span><span class="w">
+</span>    <span class="n">test_statistic</span><span class="o">=</span><a class="sphx-glr-backref-module-pythonsi-test_statistics sphx-glr-backref-type-py-class reference internal" href="../../gen_modules/pythonsi.test_statistics.html#pythonsi.test_statistics.DeepSVDDTestStatistic" title="pythonsi.test_statistics.DeepSVDDTestStatistic"><span class="n">DeepSVDDTestStatistic</span></a><span class="p">(</span><a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">test_node</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Data" title="pythonsi.Data"><span class="n">refs_node</span></a><span class="p">)</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">Running selective inference …</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">anomalies</span><span class="p">,</span> <span class="n">p_values</span> <span class="o">=</span> <a class="sphx-glr-backref-module-pythonsi sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../../all.html#pythonsi.Pipeline" title="pythonsi.Pipeline"><span class="n">pipeline</span></a><span class="p">(</span><span class="w">
+</span>    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">X_test_np</span><span class="p">,</span> <span class="n">X_refs_np</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span>    <span class="n">covariances</span><span class="o">=</span><span class="p">[</span><span class="n">sigma</span><span class="p">]</span><span class="p">,</span><span class="w">
+</span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Detected anomalies: </span><span class="si">{</span><span class="n">anomalies</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Selective p-values: </span><span class="si">{</span><span class="n">p_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">p_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span><span class="w">
+</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Reject H₀ at α=</span><span class="si">{</span><span class="n">ALPHA</span><span class="si">}</span><span class="s2">? </span><span class="si">{</span><span class="s1">'</span><span class="s1">YES</span><span class="s1">'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">p_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ALPHA</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'</span><span class="s1">NO</span><span class="s1">'</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running selective inference …
+
+Detected anomalies: [0]
+Selective p-values: [0.6284283601687561]
+Reject H₀ at α=0.05? NO
+</pre></div>
+</div>
+</section>
+<section id="plot-the-p-values">
+<h2>Plot the p-values<a class="headerlink" href="#plot-the-p-values" title="Link to this heading"></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">anomaly</span><span class="p">)</span> <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">anomalies</span><span class="p">]</span><span class="p">,</span> <span class="n">p_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'</span><span class="s1">skyblue</span><span class="s1">'</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">ALPHA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'</span><span class="s1">red</span><span class="s1">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'</span><span class="s1">--</span><span class="s1">'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'</span><span class="s1">Alpha (</span><span class="si">{</span><span class="n">ALPHA</span><span class="si">}</span><span class="s1">)</span><span class="s1">'</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">Anomalies index</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">P-value</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">Selective P-values for Detected Anomalies</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<img src="../../_images/sphx_glr_PADI_cnn_001.png" srcset="../../_images/sphx_glr_PADI_cnn_001.png" alt="Selective P-values for Detected Anomalies" class = "sphx-glr-single-img"/><div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-anomaly-detection-padi-cnn-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/52b025d60fae13f806acadb4a0d8572e/PADI_cnn.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">PADI_cnn.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6194ac4dbb6ef93f34e42dff1fc307b9/PADI_cnn.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">PADI_cnn.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3a35b5045316dd748cb6dba7f37af6b7/PADI_cnn.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">PADI_cnn.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="STAND-DA.html" class="btn btn-neutral float-left" title="Selective Inference for Autoencoder-based Anomaly Detection after Representation Learning-based Domain Adaptation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../feature_selection/LassoFS.html" class="btn btn-neutral float-right" title="Selective Inference for Lasso Feature Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, PythonSI Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
